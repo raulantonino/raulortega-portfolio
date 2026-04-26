@@ -1,0 +1,221 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { profile } from '../../data/profile';
+import { allProjects } from '../../data/projects';
+---
+
+<BaseLayout
+  title={`Proyectos | ${profile.displayName}`}
+  description={`Proyectos técnicos de ${profile.formalName}, desarrollados con Python, Django, SQL, HTML, CSS y JavaScript.`}
+>
+  <div class="page-shell">
+    <Header />
+
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div>
+            <p class="eyebrow">Proyectos</p>
+            <h1>Proyectos técnicos y casos de estudio.</h1>
+          </div>
+
+          <p>
+            Una selección de proyectos desarrollados durante mi formación y práctica técnica,
+            presentados con contexto, decisiones, tecnologías y enlaces al código.
+          </p>
+        </div>
+      </section>
+
+      <section class="projects-section">
+        <div class="container projects-grid">
+          {allProjects.map((project) => (
+            <article class="project-card">
+              <div class="project-media">
+                <span>{project.name}</span>
+              </div>
+
+              <div class="project-content">
+                <p class="project-type">{project.type}</p>
+                <h2>{project.name}</h2>
+                <p>{project.summary}</p>
+
+                <div class="project-detail">
+                  <strong>Problema</strong>
+                  <span>{project.problem}</span>
+                </div>
+
+                <div class="project-detail">
+                  <strong>Solución</strong>
+                  <span>{project.solution}</span>
+                </div>
+
+                <ul class="tech-list">
+                  {project.technologies.map((tech) => <li>{tech}</li>)}
+                </ul>
+
+                <div class="project-links">
+                  <a href={`/proyectos/${project.slug}`}>Ver caso</a>
+                  <a href={project.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .page-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+  }
+
+  .page-hero h1 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(3rem, 7vw, 5.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.08em;
+  }
+
+  .page-hero p:not(.eyebrow) {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+    line-height: 1.78;
+  }
+
+  .projects-section {
+    padding: 1rem 0 5rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.42fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.045);
+  }
+
+  .project-media {
+    display: grid;
+    min-height: 260px;
+    place-items: center;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, rgba(47, 111, 237, 0.1), rgba(138, 169, 154, 0.12)),
+      var(--color-surface-soft);
+  }
+
+  .project-media span {
+    color: var(--color-heading);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+  }
+
+  .project-content {
+    padding: 0.4rem 0.3rem;
+  }
+
+  .project-type {
+    margin: 0 0 0.7rem;
+    color: var(--color-primary-deep);
+    font-size: 0.78rem;
+    font-weight: 820;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .project-content h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    letter-spacing: -0.055em;
+  }
+
+  .project-content p {
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  .project-detail {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .project-detail strong {
+    color: var(--color-heading);
+    font-size: 0.86rem;
+  }
+
+  .project-detail span {
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tech-list li {
+    padding: 0.4rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-heading);
+    font-size: 0.84rem;
+    font-weight: 720;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.15rem;
+    font-weight: 780;
+  }
+
+  .project-links a {
+    color: var(--color-heading);
+    border-bottom: 1px solid rgba(47, 111, 237, 0.28);
+  }
+
+  .project-links a:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  @media (max-width: 820px) {
+    .page-hero-grid,
+    .project-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
