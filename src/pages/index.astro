@@ -3,16 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
-import IntroSection from '../components/sections/IntroSection.astro';
 import FeaturedExperienceSection from '../components/sections/FeaturedExperienceSection.astro';
 import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection.astro';
+import EducationSection from '../components/sections/EducationSection.astro';
 import SkillsSection from '../components/sections/SkillsSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 import { profile } from '../data/profile';
 ---
 
 <BaseLayout
-  title={`${profile.displayName} | Portfolio profesional`}
+  title={`${profile.formalName} | Portfolio profesional`}
   description={`${profile.formalName}, ${profile.role}. Portfolio profesional enfocado en desarrollo web con Python, Django y SQL.`}
 >
   <div class="page-shell">
@@ -20,9 +20,9 @@ import { profile } from '../data/profile';
 
     <main>
       <HeroSection />
-      <IntroSection />
       <FeaturedExperienceSection />
       <FeaturedProjectsSection />
+      <EducationSection />
       <SkillsSection />
       <ContactSection />
     </main>
