@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import { allProjects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return allProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.name} | Caso de estudio`}
+  description={`${project.name}: ${project.summary}`}
+>
+  <div class="page-shell">
+    <Header />
+
+    <main>
+      <section class="case-hero">
+        <div class="container case-hero-grid">
+          <div>
+            <p class="eyebrow">Caso de estudio</p>
+            <h1>{project.name}</h1>
+            <p class="project-type">{project.type}</p>
+          </div>
+
+          <div class="case-summary">
+            <p>{project.summary}</p>
+
+            <div class="case-links">
+              <a href={project.repoUrl} target="_blank" rel="noreferrer">Ver GitHub</a>
+              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer">Ver demo</a>}
+              <a href="/proyectos">Volver a proyectos</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-media-section">
+        <div class="container">
+          <div class="case-media">
+            <span>{project.name}</span>
+            <small>Captura del proyecto pendiente</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-content-section">
+        <div class="container case-content-grid">
+          <aside class="case-sidebar">
+            <div class="sidebar-card">
+              <p class="eyebrow">Rol</p>
+              <p>{project.caseStudy.role}</p>
+            </div>
+
+            <div class="sidebar-card">
+              <p class="eyebrow">Tecnologías</p>
+              <ul class="tech-list">
+                {project.technologies.map((tech) => <li>{tech}</li>)}
+              </ul>
+            </div>
+          </aside>
+
+          <div class="case-content">
+            <article class="case-block">
+              <p class="eyebrow">Contexto</p>
+              <h2>De qué se trató el proyecto</h2>
+              <p>{project.caseStudy.context}</p>
+            </article>
+
+            <article class="case-block">
+              <p class="eyebrow">Desafío</p>
+              <h2>Problema principal</h2>
+              <p>{project.caseStudy.challenge}</p>
+            </article>
+
+            <article class="case-block">
+              <p class="eyebrow">Solución</p>
+              <h2>Enfoque aplicado</h2>
+              <p>{project.caseStudy.approach}</p>
+            </article>
+
+            <article class="case-block">
+              <p class="eyebrow">Decisiones</p>
+              <h2>Decisiones destacadas</h2>
+              <ul>
+                {project.caseStudy.decisions.map((decision) => <li>{decision}</li>)}
+              </ul>
+            </article>
+
+            <article class="case-block">
+              <p class="eyebrow">Aprendizajes</p>
+              <h2>Qué aprendí</h2>
+              <ul>
+                {project.caseStudy.learnings.map((learning) => <li>{learning}</li>)}
+              </ul>
+            </article>
+
+            <article class="case-block">
+              <p class="eyebrow">Siguientes pasos</p>
+              <h2>Mejoras posibles</h2>
+              <ul>
+                {project.caseStudy.nextSteps.map((step) => <li>{step}</li>)}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style>
+  .case-hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .case-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+  }
+
+  .case-hero h1 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(3rem, 7vw, 5.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.08em;
+  }
+
+  .project-type {
+    margin: 1rem 0 0;
+    color: var(--color-primary-deep);
+    font-size: 0.82rem;
+    font-weight: 830;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .case-summary p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+    line-height: 1.78;
+  }
+
+  .case-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.3rem;
+    font-weight: 780;
+  }
+
+  .case-links a {
+    color: var(--color-heading);
+    border-bottom: 1px solid rgba(47, 111, 237, 0.28);
+  }
+
+  .case-links a:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .case-media-section {
+    padding: 1rem 0 3rem;
+  }
+
+  .case-media {
+    display: grid;
+    min-height: 340px;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background:
+      linear-gradient(135deg, rgba(47, 111, 237, 0.08), rgba(138, 169, 154, 0.1)),
+      var(--color-surface);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.045);
+    text-align: center;
+  }
+
+  .case-media span {
+    color: var(--color-heading);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 850;
+    letter-spacing: -0.06em;
+  }
+
+  .case-media small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+  }
+
+  .case-content-section {
+    padding: 3rem 0 5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .case-content-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .case-sidebar {
+    display: grid;
+    gap: 1rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .sidebar-card,
+  .case-block {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+  }
+
+  .sidebar-card {
+    padding: 1.2rem;
+  }
+
+  .sidebar-card p:not(.eyebrow) {
+    margin: 0;
+    color: var(--color-heading);
+    font-weight: 700;
+    line-height: 1.55;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tech-list li {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-heading);
+    font-size: 0.82rem;
+    font-weight: 720;
+  }
+
+  .case-content {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .case-block {
+    padding: clamp(1.25rem, 3vw, 1.8rem);
+  }
+
+  .case-block h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .case-block p,
+  .case-block li {
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  .case-block p {
+    margin: 1rem 0 0;
+  }
+
+  .case-block ul {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  @media (max-width: 900px) {
+    .case-hero-grid,
+    .case-content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .case-sidebar {
+      position: static;
+    }
+  }
+</style>
