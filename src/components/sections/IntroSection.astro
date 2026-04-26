@@ -1,0 +1,76 @@
+﻿---
+import { profile } from '../../data/profile';
+---
+
+<section class="intro-section">
+  <div class="container intro-grid">
+    <div class="intro-heading">
+      <p class="eyebrow">Perfil profesional</p>
+      <h2>Un CV web pensado para mostrar experiencia, proyectos y criterio profesional.</h2>
+    </div>
+
+    <div class="intro-text">
+      <p>
+        Este sitio organiza mi perfil como desarrollador trainee/junior desde una mirada clara:
+        experiencia relevante, proyectos técnicos, habilidades y contacto profesional. La idea
+        no es mostrar todo, sino presentar lo más importante con contexto y buen criterio visual.
+      </p>
+
+      <ul class="key-facts" aria-label="Datos profesionales clave">
+        {profile.keyFacts.map((fact) => <li>{fact}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro-section {
+    padding: 4rem 0;
+    border-block: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.42);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .intro-heading h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    line-height: 1.06;
+    letter-spacing: -0.058em;
+  }
+
+  .intro-text p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.06rem;
+    line-height: 1.78;
+  }
+
+  .key-facts {
+    display: grid;
+    gap: 0;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .key-facts li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-heading);
+    font-weight: 720;
+  }
+
+  @media (max-width: 940px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

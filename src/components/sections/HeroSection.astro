@@ -1,0 +1,249 @@
+﻿---
+import { profile } from '../../data/profile';
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Portfolio profesional</p>
+
+      <h1>{profile.displayName}</h1>
+
+      <p class="hero-headline">{profile.headline}</p>
+
+      <p class="hero-summary">{profile.summary}</p>
+
+      <div class="button-row hero-actions">
+        <a class="button button--primary" href="/proyectos">Ver proyectos</a>
+        <a class="button button--secondary" href="/sobre-mi">Conocer mi perfil</a>
+        <a class="hero-link" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <aside class="profile-card" aria-label="Perfil profesional resumido">
+      <div class="portrait-frame">
+        {
+          profile.image ? (
+            <img src={profile.image} alt={`Retrato de ${profile.formalName}`} />
+          ) : (
+            <div class="portrait-placeholder">
+              <span>Foto</span>
+              <strong>profesional</strong>
+              <small>pendiente</small>
+            </div>
+          )
+        }
+      </div>
+
+      <div class="profile-meta">
+        <p class="profile-name">{profile.formalName}</p>
+        <p class="profile-role">{profile.role}</p>
+
+        <dl class="profile-list">
+          <div>
+            <dt>Ubicación</dt>
+            <dd>{profile.location}</dd>
+          </div>
+
+          <div>
+            <dt>Disponibilidad</dt>
+            <dd>{profile.availability}</dd>
+          </div>
+
+          <div>
+            <dt>Foco</dt>
+            <dd>Desarrollo web · datos · procesos</dd>
+          </div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 6.25rem 0 4.75rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-copy h1 {
+    margin: 0;
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.08em;
+  }
+
+  .hero-headline {
+    margin: 1.4rem 0 0;
+    max-width: 720px;
+    color: var(--color-heading);
+    font-size: clamp(1.42rem, 2.15vw, 1.95rem);
+    font-weight: 760;
+    line-height: 1.2;
+    letter-spacing: -0.052em;
+  }
+
+  .hero-summary {
+    margin: 1.05rem 0 1.8rem;
+    max-width: 690px;
+    color: var(--color-muted);
+    font-size: 1.06rem;
+    line-height: 1.75;
+  }
+
+  .hero-link {
+    color: var(--color-heading);
+    font-weight: 760;
+    border-bottom: 1px solid rgba(47, 111, 237, 0.28);
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .hero-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .profile-card {
+    display: grid;
+    gap: 1rem;
+    padding: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.055);
+  }
+
+  .portrait-frame {
+    overflow: hidden;
+    aspect-ratio: 4 / 4.65;
+    border: 1px solid rgba(15, 23, 42, 0.09);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(145deg, rgba(238, 243, 247, 0.92), rgba(249, 250, 247, 0.96));
+  }
+
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portrait-placeholder {
+    display: grid;
+    height: 100%;
+    place-content: center;
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .portrait-placeholder span {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .portrait-placeholder strong {
+    margin-top: 0.25rem;
+    color: var(--color-heading);
+    font-size: 1.6rem;
+    letter-spacing: -0.055em;
+  }
+
+  .portrait-placeholder small {
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+  }
+
+  .profile-meta {
+    padding: 0.25rem 0.15rem 0.1rem;
+  }
+
+  .profile-name {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 1.05rem;
+    font-weight: 820;
+    letter-spacing: -0.035em;
+  }
+
+  .profile-role {
+    margin: 0.25rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.93rem;
+    line-height: 1.45;
+  }
+
+  .profile-list {
+    display: grid;
+    gap: 0;
+    margin: 1rem 0 0;
+  }
+
+  .profile-list div {
+    display: grid;
+    grid-template-columns: 6.7rem 1fr;
+    gap: 0.75rem;
+    padding: 0.72rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .profile-list dt {
+    color: var(--color-muted);
+    font-size: 0.76rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  .profile-list dd {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 0.92rem;
+    font-weight: 670;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 940px) {
+    .hero {
+      padding-top: 4rem;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+      max-width: 420px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      padding: 3.5rem 0 3.25rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3rem, 17vw, 4.45rem);
+    }
+
+    .profile-list div {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+</style>

@@ -1,0 +1,226 @@
+﻿---
+import { featuredProjects } from '../../data/projects';
+
+const projects = featuredProjects.slice(0, 3);
+---
+
+<section class="projects-section">
+  <div class="container section-header">
+    <p class="eyebrow">Proyectos destacados</p>
+    <h2>Proyectos presentados como mini casos de estudio.</h2>
+    <p>
+      Cada proyecto busca mostrar no solo tecnologías, sino también problema,
+      solución, decisiones y resultado visible.
+    </p>
+  </div>
+
+  <div class="container projects-list">
+    {projects.map((project, index) => (
+      <article class="project-feature">
+        <div class="project-index">0{index + 1}</div>
+
+        <div class="project-media">
+          <span>{project.name}</span>
+        </div>
+
+        <div class="project-content">
+          <p class="project-type">{project.type}</p>
+          <h3>{project.name}</h3>
+          <p class="summary">{project.summary}</p>
+
+          <div class="project-points">
+            <div>
+              <strong>Problema</strong>
+              <p>{project.problem}</p>
+            </div>
+
+            <div>
+              <strong>Solución</strong>
+              <p>{project.solution}</p>
+            </div>
+          </div>
+
+          <ul class="tech-list">
+            {project.technologies.slice(0, 6).map((tech) => <li>{tech}</li>)}
+          </ul>
+
+          <div class="project-links">
+            <a href={`/proyectos/${project.slug}`}>Ver caso</a>
+            <a href={project.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="container section-action">
+    <a class="text-link" href="/proyectos">Explorar todos los proyectos</a>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: end;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    line-height: 1.06;
+    letter-spacing: -0.058em;
+  }
+
+  .section-header p:not(.eyebrow) {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.04rem;
+    line-height: 1.75;
+  }
+
+  .projects-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .project-feature {
+    display: grid;
+    grid-template-columns: 4rem minmax(220px, 0.38fr) minmax(0, 1fr);
+    gap: 1.2rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.045);
+  }
+
+  .project-index {
+    color: rgba(15, 23, 42, 0.32);
+    font-size: 0.9rem;
+    font-weight: 850;
+  }
+
+  .project-media {
+    display: grid;
+    min-height: 230px;
+    place-items: center;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, rgba(47, 111, 237, 0.08), rgba(138, 169, 154, 0.1)),
+      var(--color-surface-soft);
+  }
+
+  .project-media span {
+    padding: 1rem;
+    color: var(--color-heading);
+    font-weight: 850;
+    text-align: center;
+    letter-spacing: -0.04em;
+  }
+
+  .project-content {
+    padding: 0.35rem 0.2rem;
+  }
+
+  .project-type {
+    margin: 0 0 0.65rem;
+    color: var(--color-primary-deep);
+    font-size: 0.76rem;
+    font-weight: 820;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .project-content h3 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.055em;
+  }
+
+  .summary,
+  .project-points p {
+    color: var(--color-muted);
+    line-height: 1.68;
+  }
+
+  .project-points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .project-points strong {
+    color: var(--color-heading);
+    font-size: 0.86rem;
+  }
+
+  .project-points p {
+    margin: 0.35rem 0 0;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tech-list li {
+    padding: 0.36rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-heading);
+    font-size: 0.8rem;
+    font-weight: 720;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.1rem;
+    font-weight: 780;
+  }
+
+  .project-links a {
+    color: var(--color-heading);
+    border-bottom: 1px solid rgba(47, 111, 237, 0.28);
+  }
+
+  .project-links a:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .section-action {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 960px) {
+    .section-header,
+    .project-feature,
+    .project-points {
+      grid-template-columns: 1fr;
+    }
+
+    .project-index {
+      margin-bottom: -0.4rem;
+    }
+  }
+</style>
