@@ -1,0 +1,127 @@
+﻿---
+import { featuredExperience } from '../../data/experience';
+---
+
+<section id="experiencia" class="cv-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Experiencia</p>
+      <h2>Experiencia relevante</h2>
+    </div>
+
+    <div class="experience-list">
+      {featuredExperience.map((item) => (
+        <article class="experience-item">
+          <div class="experience-date">{item.period}</div>
+
+          <div class="experience-content">
+            <h3>{item.role}</h3>
+            <p class="organization">{item.organization}</p>
+            <p class="summary">{item.summary}</p>
+
+            <ul>
+              {item.highlights.map((highlight) => <li>{highlight}</li>)}
+            </ul>
+
+            <div class="tag-list">
+              {item.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cv-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-heading {
+    margin-bottom: 1.6rem;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.075em;
+  }
+
+  .experience-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+  }
+
+  .experience-date {
+    color: var(--color-primary-deep);
+    font-size: 0.8rem;
+    font-weight: 830;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .experience-content h3 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 1.35rem;
+    line-height: 1.18;
+    letter-spacing: -0.04em;
+  }
+
+  .organization {
+    margin: 0.28rem 0 0;
+    color: var(--color-muted);
+    font-weight: 720;
+  }
+
+  .summary {
+    margin: 0.9rem 0 0;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .experience-content ul {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .tag-list span {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-heading);
+    font-size: 0.8rem;
+    font-weight: 720;
+  }
+
+  @media (max-width: 760px) {
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>

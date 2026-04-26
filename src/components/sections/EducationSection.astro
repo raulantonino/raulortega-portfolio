@@ -1,0 +1,85 @@
+﻿---
+import { education } from '../../data/experience';
+---
+
+<section id="educacion" class="cv-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Educación</p>
+      <h2>Formación académica y técnica</h2>
+    </div>
+
+    <div class="education-grid">
+      {education.map((item) => (
+        <article class="education-card">
+          <p>{item.period}</p>
+          <h3>{item.title}</h3>
+          <span>{item.institution}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cv-section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-heading {
+    margin-bottom: 1.6rem;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.075em;
+  }
+
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .education-card {
+    padding: 1.35rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+  }
+
+  .education-card p {
+    margin: 0 0 0.6rem;
+    color: var(--color-primary-deep);
+    font-size: 0.8rem;
+    font-weight: 830;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .education-card h3 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 1.22rem;
+    line-height: 1.22;
+    letter-spacing: -0.04em;
+  }
+
+  .education-card span {
+    display: block;
+    margin-top: 0.55rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 860px) {
+    .education-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

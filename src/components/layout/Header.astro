@@ -4,16 +4,17 @@ import { profile } from '../../data/profile';
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="Ir al inicio">
+    <a class="brand" href="/#inicio" aria-label="Ir al inicio">
       <span class="brand-name">{profile.displayName}</span>
-      <span class="brand-line" aria-hidden="true"></span>
       <span class="brand-subtitle">Python · Django · SQL</span>
     </a>
 
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="/sobre-mi">Sobre mí</a>
-      <a href="/proyectos">Proyectos</a>
-      <a href={profile.links.email}>Contacto</a>
+      <a href="/#experiencia">Experiencia</a>
+      <a href="/#proyectos">Proyectos</a>
+      <a href="/#educacion">Educación</a>
+      <a href="/#habilidades">Habilidades</a>
+      <a href="/#contacto">Contacto</a>
     </nav>
   </div>
 </header>
@@ -35,16 +36,16 @@ import { profile } from '../../data/profile';
     padding: 0.58rem 0.75rem;
     border: 1px solid rgba(15, 23, 42, 0.085);
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 12px 36px rgba(15, 23, 42, 0.045);
     backdrop-filter: blur(10px);
   }
 
   .brand {
     display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    min-width: 0;
+    flex-direction: column;
+    gap: 0.08rem;
+    min-width: max-content;
   }
 
   .brand-name {
@@ -52,20 +53,12 @@ import { profile } from '../../data/profile';
     font-size: 0.98rem;
     font-weight: 830;
     letter-spacing: -0.035em;
-    white-space: nowrap;
-  }
-
-  .brand-line {
-    width: 1px;
-    height: 1rem;
-    background: var(--color-border);
   }
 
   .brand-subtitle {
     color: var(--color-muted);
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 640;
-    white-space: nowrap;
   }
 
   .main-nav {
@@ -75,10 +68,10 @@ import { profile } from '../../data/profile';
   }
 
   .main-nav a {
-    padding: 0.48rem 0.62rem;
+    padding: 0.48rem 0.58rem;
     border-radius: var(--radius-sm);
     color: var(--color-muted);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     transition:
       color 180ms ease,
@@ -90,33 +83,21 @@ import { profile } from '../../data/profile';
     background: rgba(47, 111, 237, 0.075);
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 860px) {
     .header-inner {
       align-items: flex-start;
       flex-direction: column;
       gap: 0.65rem;
     }
 
-    .brand {
-      flex-wrap: wrap;
-      row-gap: 0.2rem;
-    }
-
     .main-nav {
       width: 100%;
-      justify-content: space-between;
+      overflow-x: auto;
+      padding-bottom: 0.15rem;
     }
 
     .main-nav a {
-      padding-inline: 0.4rem;
-      font-size: 0.86rem;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .brand-line,
-    .brand-subtitle {
-      display: none;
+      white-space: nowrap;
     }
   }
 </style>
