@@ -1,0 +1,70 @@
+﻿---
+import { profile } from '../../data/profile';
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="footer-name">{profile.formalName}</p>
+      <p class="footer-copy">© 2026 · Portfolio profesional construido con Astro.</p>
+    </div>
+
+    <div class="footer-links" aria-label="Enlaces profesionales">
+      <a href={profile.links.email}>Email</a>
+      <a href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    z-index: 1;
+    padding: 2.75rem 0;
+    color: var(--color-muted);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-name {
+    margin: 0;
+    color: var(--color-heading);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  .footer-copy {
+    margin: 0.25rem 0 0;
+    font-size: 0.92rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-weight: 720;
+  }
+
+  .footer-links a {
+    color: var(--color-text);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 720px) {
+    .footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

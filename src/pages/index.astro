@@ -1,17 +1,435 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { profile } from '../data/profile';
 ---
 
----
+<BaseLayout
+  title={`${profile.displayName} | Portfolio profesional`}
+  description={`${profile.formalName}, ${profile.role}. Portfolio profesional enfocado en desarrollo web con Python, Django y SQL.`}
+>
+  <div class="page-shell">
+    <Header />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Portfolio profesional</p>
+
+            <h1>{profile.displayName}</h1>
+
+            <p class="hero-headline">{profile.headline}</p>
+
+            <p class="hero-summary">{profile.summary}</p>
+
+            <div class="button-row hero-actions">
+              <a class="button button--primary" href="/proyectos">Ver proyectos</a>
+              <a class="button button--secondary" href="/sobre-mi">Conocer mi perfil</a>
+              <a class="hero-link" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <aside class="profile-card" aria-label="Perfil profesional resumido">
+            <div class="portrait-frame">
+              {
+                profile.image ? (
+                  <img src={profile.image} alt={`Retrato de ${profile.formalName}`} />
+                ) : (
+                  <div class="portrait-placeholder">
+                    <span>Foto</span>
+                    <strong>profesional</strong>
+                    <small>pendiente</small>
+                  </div>
+                )
+              }
+            </div>
+
+            <div class="profile-meta">
+              <p class="profile-name">{profile.formalName}</p>
+              <p class="profile-role">{profile.role}</p>
+
+              <dl class="profile-list">
+                <div>
+                  <dt>Ubicación</dt>
+                  <dd>{profile.location}</dd>
+                </div>
+
+                <div>
+                  <dt>Disponibilidad</dt>
+                  <dd>{profile.availability}</dd>
+                </div>
+
+                <div>
+                  <dt>Foco</dt>
+                  <dd>Desarrollo web · datos · procesos</dd>
+                </div>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="intro-section">
+        <div class="container intro-grid">
+          <div class="intro-heading">
+            <p class="eyebrow">Base del sitio</p>
+            <h2>Un CV web pensado para mostrar experiencia, proyectos y criterio profesional.</h2>
+          </div>
+
+          <div class="intro-text">
+            <p>
+              Esta primera versión organizará mi perfil en secciones claras:
+              experiencia destacada, proyectos técnicos, habilidades y contacto profesional.
+              La idea no es mostrarlo todo, sino presentar lo más relevante con buen contexto.
+            </p>
+
+            <ul class="key-facts" aria-label="Datos profesionales clave">
+              {profile.keyFacts.map((fact) => <li>{fact}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview-section">
+        <div class="container preview-grid">
+          <article class="preview-card">
+            <span class="card-number">01</span>
+            <p class="card-kicker">Experiencia</p>
+            <h3>OTEC, MASISA y análisis de datos</h3>
+            <p>
+              Experiencia reciente en desarrollo Django y experiencia previa en datos,
+              SAP, procesos y coordinación con distintas áreas.
+            </p>
+          </article>
+
+          <article class="preview-card">
+            <span class="card-number">02</span>
+            <p class="card-kicker">Proyectos</p>
+            <h3>Pokeparty como caso principal</h3>
+            <p>
+              Los proyectos se presentarán como mini casos de estudio, con problema,
+              solución, tecnologías, decisiones y enlaces.
+            </p>
+          </article>
+
+          <article class="preview-card">
+            <span class="card-number">03</span>
+            <p class="card-kicker">Contacto</p>
+            <h3>Conexión profesional directa</h3>
+            <p>
+              El sitio priorizará contacto simple mediante email, LinkedIn y GitHub,
+              sin agregar complejidad innecesaria al MVP.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 6.25rem 0 4.75rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-copy h1 {
+    margin: 0;
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.08em;
+  }
+
+  .hero-headline {
+    margin: 1.4rem 0 0;
+    max-width: 720px;
+    color: var(--color-heading);
+    font-size: clamp(1.42rem, 2.15vw, 1.95rem);
+    font-weight: 760;
+    line-height: 1.2;
+    letter-spacing: -0.052em;
+  }
+
+  .hero-summary {
+    margin: 1.05rem 0 1.8rem;
+    max-width: 690px;
+    color: var(--color-muted);
+    font-size: 1.06rem;
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    align-items: center;
+  }
+
+  .hero-link {
+    color: var(--color-heading);
+    font-weight: 760;
+    border-bottom: 1px solid rgba(47, 111, 237, 0.28);
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .hero-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .profile-card {
+    display: grid;
+    gap: 1rem;
+    padding: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.055);
+  }
+
+  .portrait-frame {
+    overflow: hidden;
+    aspect-ratio: 4 / 4.65;
+    border: 1px solid rgba(15, 23, 42, 0.09);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(145deg, rgba(238, 243, 247, 0.92), rgba(249, 250, 247, 0.96));
+  }
+
+  .portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portrait-placeholder {
+    display: grid;
+    height: 100%;
+    place-content: center;
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .portrait-placeholder span {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .portrait-placeholder strong {
+    margin-top: 0.25rem;
+    color: var(--color-heading);
+    font-size: 1.6rem;
+    letter-spacing: -0.055em;
+  }
+
+  .portrait-placeholder small {
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+  }
+
+  .profile-meta {
+    padding: 0.25rem 0.15rem 0.1rem;
+  }
+
+  .profile-name {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 1.05rem;
+    font-weight: 820;
+    letter-spacing: -0.035em;
+  }
+
+  .profile-role {
+    margin: 0.25rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.93rem;
+    line-height: 1.45;
+  }
+
+  .profile-list {
+    display: grid;
+    gap: 0;
+    margin: 1rem 0 0;
+  }
+
+  .profile-list div {
+    display: grid;
+    grid-template-columns: 6.7rem 1fr;
+    gap: 0.75rem;
+    padding: 0.72rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .profile-list dt {
+    color: var(--color-muted);
+    font-size: 0.76rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  .profile-list dd {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 0.92rem;
+    font-weight: 670;
+    line-height: 1.4;
+  }
+
+  .intro-section {
+    padding: 4rem 0;
+    border-block: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.42);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .intro-heading h2 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    line-height: 1.06;
+    letter-spacing: -0.058em;
+  }
+
+  .intro-text p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.06rem;
+    line-height: 1.78;
+  }
+
+  .key-facts {
+    display: grid;
+    gap: 0;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .key-facts li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-heading);
+    font-weight: 720;
+  }
+
+  .preview-section {
+    padding: 4.25rem 0 5rem;
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .preview-card {
+    position: relative;
+    min-height: 260px;
+    padding: 1.35rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.045);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .preview-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-blue);
+    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+  }
+
+  .card-number {
+    display: block;
+    margin-bottom: 2.4rem;
+    color: rgba(15, 23, 42, 0.28);
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  .card-kicker {
+    margin: 0 0 0.65rem;
+    color: var(--color-primary-deep);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .preview-card h3 {
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 1.24rem;
+    line-height: 1.24;
+    letter-spacing: -0.04em;
+  }
+
+  .preview-card p:not(.card-kicker) {
+    margin: 0.85rem 0 0;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 940px) {
+    .hero {
+      padding-top: 4rem;
+    }
+
+    .hero-grid,
+    .intro-grid,
+    .preview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+      max-width: 420px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      padding: 3.5rem 0 3.25rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3rem, 17vw, 4.45rem);
+    }
+
+    .profile-list div {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+
+    .preview-card {
+      min-height: auto;
+    }
+  }
+</style>
