@@ -1,17 +1,204 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { profile } from '../data/profile';
 ---
 
----
+<BaseLayout>
+  <div class="page-shell">
+    <Header />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <main>
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Portfolio profesional</p>
+
+            <h1>{profile.name}</h1>
+
+            <p class="hero-role">{profile.role}</p>
+
+            <p class="hero-summary">{profile.summary}</p>
+
+            <div class="button-row">
+              <a class="button button--primary" href="/proyectos">Ver proyectos</a>
+              <a class="button button--secondary" href="/sobre-mi">Conocer mi perfil</a>
+              <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card glass-card" aria-label="Resumen profesional">
+            <p class="card-label">Foco actual</p>
+            <h2>Desarrollo web con base analítica</h2>
+            <p>
+              Perfil trainee/junior orientado a construir aplicaciones claras,
+              mantenibles y bien presentadas, conectando desarrollo, datos y procesos.
+            </p>
+
+            <div class="tech-list" aria-label="Tecnologías principales">
+              <span>Python</span>
+              <span>Django</span>
+              <span>SQL</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Git</span>
+              <span>GitHub</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--compact">
+        <div class="container preview-grid">
+          <article class="preview-card glass-card">
+            <p class="eyebrow">Experiencia</p>
+            <h2>OTEC, MASISA y análisis de datos</h2>
+            <p>
+              Experiencia reciente en desarrollo Django y experiencia previa en datos,
+              SAP, procesos y coordinación con distintas áreas.
+            </p>
+          </article>
+
+          <article class="preview-card glass-card">
+            <p class="eyebrow">Proyectos</p>
+            <h2>Pokeparty como caso principal</h2>
+            <p>
+              El portfolio destacará proyectos técnicos con contexto, tecnologías,
+              capturas, repositorio y decisiones relevantes.
+            </p>
+          </article>
+
+          <article class="preview-card glass-card">
+            <p class="eyebrow">Contacto</p>
+            <h2>Disponible para oportunidades trainee/junior</h2>
+            <p>
+              Puedes contactarme por email, LinkedIn o revisar mi trabajo en GitHub.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: 5.5rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    margin: 0;
+    max-width: 780px;
+    font-size: clamp(3rem, 8vw, 6.8rem);
+    line-height: 0.92;
+    letter-spacing: -0.085em;
+  }
+
+  .hero-role {
+    margin: 1.4rem 0 0;
+    max-width: 680px;
+    color: var(--color-primary);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-summary {
+    margin: 1rem 0 1.7rem;
+    max-width: 680px;
+    color: var(--color-muted);
+    font-size: 1.12rem;
+    line-height: 1.75;
+  }
+
+  .hero-card {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    width: 11rem;
+    height: 11rem;
+    right: -4rem;
+    top: -4rem;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.24);
+  }
+
+  .card-label {
+    margin: 0 0 0.8rem;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-card h2,
+  .preview-card h2 {
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+  }
+
+  .hero-card p:not(.card-label),
+  .preview-card p:not(.eyebrow) {
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+  }
+
+  .tech-list span {
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.68);
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 800;
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .preview-card {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .preview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding-top: 3.5rem;
+    }
+  }
+</style>
