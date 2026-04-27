@@ -10,7 +10,7 @@
     solution:
       'Se desarrolló una aplicación web con foco en estructura backend, consumo de datos, presentación visual cuidada y documentación técnica.',
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
-    repoUrl: 'https://github.com/raulantonino',
+    repoUrl: 'https://github.com/raulantonino/pokeparty',
     demoUrl: '',
     featured: true,
     caseStudy: {
@@ -50,7 +50,7 @@
     solution:
       'Se creó una aplicación Django con estructura ordenada, datos semilla, filtros por tipo/nivel y una interfaz visual diferenciada.',
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'SQLite', 'Git'],
-    repoUrl: 'https://github.com/raulantonino',
+    repoUrl: 'https://github.com/raulantonino/mystale-catalog-challenge',
     demoUrl: '',
     featured: true,
     caseStudy: {
@@ -89,7 +89,7 @@
     solution:
       'Se trabajó una aplicación Django con flujos CRUD, autenticación, navegación clara y mejoras funcionales sobre el alcance base.',
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'Bootstrap', 'Git'],
-    repoUrl: 'https://github.com/raulantonino',
+    repoUrl: 'https://github.com/raulantonino/oak-lab-challenge',
     demoUrl: '',
     featured: true,
     caseStudy: {
