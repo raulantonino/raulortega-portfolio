@@ -17,6 +17,7 @@ const { project } = Astro.props;
 <BaseLayout
   title={`${project.name} | Caso de estudio`}
   description={`${project.name}: ${project.summary}`}
+  image={project.images.case}
 >
   <div class="page-shell">
     <Header />
@@ -45,8 +46,7 @@ const { project } = Astro.props;
       <section class="case-media-section">
         <div class="container">
           <div class="case-media">
-            <span>{project.name}</span>
-            <small>Captura del proyecto pendiente</small>
+            <img src={project.images.case} alt={`Captura principal de ${project.name}`} loading="lazy" />
           </div>
         </div>
       </section>
@@ -177,29 +177,18 @@ const { project } = Astro.props;
   }
 
   .case-media {
-    display: grid;
-    min-height: 340px;
-    place-items: center;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
-    background:
-      linear-gradient(135deg, rgba(47, 111, 237, 0.08), rgba(138, 169, 154, 0.1)),
-      var(--color-surface);
+    background: var(--color-surface);
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.045);
-    text-align: center;
   }
 
-  .case-media span {
-    color: var(--color-heading);
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 850;
-    letter-spacing: -0.06em;
-  }
-
-  .case-media small {
-    display: block;
-    margin-top: 0.5rem;
-    color: var(--color-muted);
+  .case-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .case-content-section {

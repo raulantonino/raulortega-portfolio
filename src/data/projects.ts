@@ -12,6 +12,10 @@
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     repoUrl: 'https://github.com/raulantonino/pokeparty',
     demoUrl: '',
+    images: {
+      preview: '/images/projects/pokeparty-preview.jpg',
+      case: '/images/projects/pokeparty-case.jpg',
+    },
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto',
@@ -52,6 +56,10 @@
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'SQLite', 'Git'],
     repoUrl: 'https://github.com/raulantonino/mystale-catalog-challenge',
     demoUrl: '',
+    images: {
+      preview: '/images/projects/mystale-catalog-preview.jpg',
+      case: '/images/projects/mystale-catalog-case.jpg',
+    },
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto',
@@ -91,6 +99,10 @@
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'Bootstrap', 'Git'],
     repoUrl: 'https://github.com/raulantonino/oak-lab-challenge',
     demoUrl: '',
+    images: {
+      preview: '/images/projects/pokeprofe-oak-preview.jpg',
+      case: '/images/projects/pokeprofe-oak-case.jpg',
+    },
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto',
