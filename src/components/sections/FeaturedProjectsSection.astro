@@ -6,18 +6,14 @@ const projects = featuredProjects.slice(0, 3);
 
 <section id="proyectos" class="projects-section">
   <div class="container section-header">
-    <p class="eyebrow">Proyectos destacados</p>
-    <h2>Proyectos Django con evidencia técnica concreta.</h2>
-    <p>
-      Una selección breve de proyectos desarrollados de inicio a fin, con foco en
-      backend, datos, reglas de negocio y código revisable.
-    </p>
+    <p class="eyebrow">PROYECTOS DESTACADOS</p>
+    <h2 class="section-title">Proyectos presentados como casos de estudio.</h2>
   </div>
 
   <div class="container projects-list">
     {projects.map((project, index) => (
       <article class="project-feature">
-        <div class="project-index">0{index + 1}</div>
+        <div class="project-index" aria-hidden="true">0{index + 1}</div>
 
         <div class="project-content">
           <p class="project-type">{project.type}</p>
@@ -57,26 +53,8 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .section-header {
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-    gap: clamp(1.5rem, 4vw, 3.5rem);
-    align-items: end;
     margin-bottom: 1.5rem;
-  }
-
-  .section-header h2 {
-    margin: 0;
-    color: var(--color-heading);
-    font-size: clamp(2rem, 4vw, 3.15rem);
-    line-height: 1.06;
-    letter-spacing: 0;
-  }
-
-  .section-header p:not(.eyebrow) {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 1.04rem;
-    line-height: 1.75;
+    text-align: left;
   }
 
   .projects-list {
@@ -85,9 +63,11 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .project-feature {
+    position: relative;
     display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.2rem;
+    overflow: hidden;
     padding: clamp(1rem, 3vw, 1.35rem);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
@@ -96,12 +76,19 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .project-index {
-    color: rgba(15, 23, 42, 0.32);
-    font-size: 0.9rem;
-    font-weight: 850;
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
+    color: rgba(15, 23, 42, 0.06);
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
   }
 
   .project-content {
+    position: relative;
+    z-index: 1;
     padding: 0.1rem 0;
   }
 
@@ -180,13 +167,8 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   @media (max-width: 960px) {
-    .section-header,
     .project-feature {
       grid-template-columns: 1fr;
-    }
-
-    .project-index {
-      margin-bottom: -0.4rem;
     }
   }
 </style>
