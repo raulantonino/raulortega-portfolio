@@ -46,7 +46,17 @@ const { project } = Astro.props;
       <section class="case-media-section">
         <div class="container">
           <div class="case-media">
-            <img src={project.images.case} alt={`Captura principal de ${project.name}`} loading="lazy" />
+            <picture>
+              <source srcset={project.images.caseWebp} type="image/webp" />
+              <img
+                src={project.images.case}
+                alt={`Captura principal de ${project.name}`}
+                width="1600"
+                height="900"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -189,6 +199,12 @@ const { project } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .case-media picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .case-content-section {

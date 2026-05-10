@@ -14,7 +14,9 @@
     demoUrl: 'https://pokeparty-keqn.onrender.com',
     images: {
       preview: '/images/projects/pokeparty-preview.jpg',
+      previewWebp: '/images/projects/pokeparty-preview.webp',
       case: '/images/projects/pokeparty-case.jpg',
+      caseWebp: '/images/projects/pokeparty-case.webp',
     },
     featured: true,
     caseStudy: {
@@ -58,7 +60,9 @@
     demoUrl: '',
     images: {
       preview: '/images/projects/mystale-catalog-preview.jpg',
+      previewWebp: '/images/projects/mystale-catalog-preview.webp',
       case: '/images/projects/mystale-catalog-case.jpg',
+      caseWebp: '/images/projects/mystale-catalog-case.webp',
     },
     featured: true,
     caseStudy: {
@@ -101,7 +105,9 @@
     demoUrl: '',
     images: {
       preview: '/images/projects/pokeprofe-oak-preview.jpg',
+      previewWebp: '/images/projects/pokeprofe-oak-preview.webp',
       case: '/images/projects/pokeprofe-oak-case.jpg',
+      caseWebp: '/images/projects/pokeprofe-oak-case.webp',
     },
     featured: true,
     caseStudy: {

@@ -7,6 +7,7 @@
   availability: 'Disponible para roles trainee/junior',
   email: 'r.ortegahuenuil@gmail.com',
   image: '/images/profile.jpg',
+  imageWebp: '/images/profile.webp',
   headline:
     'Desarrollo aplicaciones web combinando criterio técnico, mirada analítica y cuidado visual.',
   summary:

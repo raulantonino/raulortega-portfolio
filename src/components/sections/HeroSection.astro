@@ -8,7 +8,17 @@ import { profile } from '../../data/profile';
       <div class="portrait-frame">
         {
           profile.image ? (
-            <img src={profile.image} alt={`Retrato de ${profile.formalName}`} />
+            <picture>
+              <source srcset={profile.imageWebp} type="image/webp" />
+              <img
+                src={profile.image}
+                alt={`Retrato de ${profile.formalName}`}
+                width="640"
+                height="640"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           ) : (
             <div class="portrait-placeholder">
               <span>Foto</span>
@@ -79,6 +89,12 @@ import { profile } from '../../data/profile';
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .portrait-frame picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .portrait-placeholder {
