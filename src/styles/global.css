@@ -72,6 +72,15 @@ a {
   text-decoration: none;
 }
 
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 3px solid rgba(47, 111, 237, 0.62);
+  outline-offset: 3px;
+}
+
+main:focus {
+  outline: none;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -87,6 +96,26 @@ textarea {
   position: relative;
   z-index: 1;
   min-height: 100vh;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--color-border-blue);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  background: var(--color-primary-deep);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
+  font-weight: 780;
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .container {
@@ -215,5 +244,16 @@ textarea {
 
   .button-row {
     align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
