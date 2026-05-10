@@ -1,17 +1,54 @@
-﻿export const featuredProjects = [
+export type Project = {
+  slug: string;
+  name: string;
+  type: string;
+  summary: string;
+  problem: string;
+  solution: string;
+  technologies: string[];
+  repoUrl: string;
+  demoUrl: string;
+  demoNote?: string;
+  images: {
+    preview: string;
+    previewWebp: string;
+    case: string;
+    caseWebp: string;
+  };
+  featured: boolean;
+  caseStudy: {
+    role: string;
+    challengeType: string;
+    objective: string;
+    ownership: string;
+    context: string;
+    challenge: string;
+    approach: string;
+    result: string;
+    scope: string[];
+    technicalHighlights: string[];
+    decisions: string[];
+    learnings: string[];
+    nextSteps: string[];
+  };
+};
+
+export const featuredProjects: Project[] = [
   {
     slug: 'pokeparty',
     name: 'Pokeparty',
     type: 'Aplicación web con integración de API externa',
     summary:
-      'Aplicación para construir y optimizar una party Pokémon usando datos reales desde PokeAPI.',
+      'Aplicación Django para construir una party Pokémon usando datos reales desde PokeAPI.',
     problem:
       'El desafío consistía en consumir una API externa, transformar datos y presentar una experiencia clara para comparar y construir equipos.',
     solution:
-      'Se desarrolló una aplicación web con foco en estructura backend, consumo de datos, presentación visual cuidada y documentación técnica.',
+      'Se desarrolló una aplicación web con foco en backend Django, consumo de datos externos, presentación visual cuidada y documentación técnica.',
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     repoUrl: 'https://github.com/raulantonino/pokeparty',
     demoUrl: 'https://pokeparty-keqn.onrender.com',
+    demoNote:
+      'Demo estable desplegada en Render. El primer acceso puede tardar por cold start del servicio gratuito.',
     images: {
       preview: '/images/projects/pokeparty-preview.jpg',
       previewWebp: '/images/projects/pokeparty-preview.webp',
@@ -21,12 +58,31 @@
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto de inicio a fin',
+      challengeType: 'Challenge técnico individual',
+      objective:
+        'Construir una aplicación web capaz de consultar PokeAPI, procesar información relevante y presentarla en una interfaz útil para armar una party Pokémon.',
+      ownership:
+        'Desarrollé la solución completa: estructura Django, integración con API externa, transformación de datos, templates, estilos, documentación y deploy.',
       context:
         'Proyecto técnico desarrollado como challenge para demostrar manejo de Django, integración con una API externa, organización de datos y presentación de información de forma clara.',
       challenge:
         'El principal desafío fue transformar datos externos en una experiencia útil para el usuario, manteniendo una estructura ordenada y una interfaz fácil de recorrer.',
       approach:
         'La solución se trabajó separando responsabilidades, cuidando el flujo de datos desde la API externa hasta la presentación visual, y documentando decisiones técnicas relevantes para que el proyecto fuera entendible como pieza de portafolio.',
+      result:
+        'La aplicación quedó disponible como demo funcional y como repositorio público, mostrando consumo de API externa, flujo de datos y presentación visual del resultado.',
+      scope: [
+        'Configuración y estructura base del proyecto Django.',
+        'Consumo y procesamiento de datos desde PokeAPI.',
+        'Construcción de templates, estilos y navegación principal.',
+        'Documentación del proyecto y publicación de una demo estable.',
+      ],
+      technicalHighlights: [
+        'Integración con una API externa real.',
+        'Transformación de datos antes de presentarlos al usuario.',
+        'Separación entre lógica de datos, vistas y templates.',
+        'Deploy funcional para revisión técnica externa.',
+      ],
       decisions: [
         'Usar Django como base para organizar vistas, lógica y templates.',
         'Encapsular la integración con la API externa para evitar mezclar llamadas directas con la presentación.',
@@ -67,12 +123,31 @@
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto de inicio a fin',
+      challengeType: 'Challenge técnico individual',
+      objective:
+        'Construir un catálogo web navegable que permitiera revisar criaturas, aplicar filtros y entender rápidamente su clasificación.',
+      ownership:
+        'Implementé la aplicación completa: estructura Django, datos iniciales, filtros, ordenamiento, templates, estilos y documentación del repositorio.',
       context:
         'Challenge técnico enfocado en construir un catálogo navegable, con datos organizados, filtros y una propuesta visual propia.',
       challenge:
         'El desafío fue equilibrar estructura backend, claridad de filtros y una estética visual diferenciada sin perder legibilidad.',
       approach:
         'Se trabajó una aplicación Django con modelos simples, datos iniciales, ordenamiento, filtros y una interfaz inspirada en una estética retro/editorial.',
+      result:
+        'El resultado es un catálogo funcional que permite explorar entidades con una jerarquía clara y una presentación visual distinta al aspecto estándar de un challenge.',
+      scope: [
+        'Definición de entidades, atributos y criterios de clasificación.',
+        'Implementación de filtros y ordenamiento para exploración del catálogo.',
+        'Construcción de templates y estilos con una dirección visual propia.',
+        'Organización del repositorio para facilitar revisión técnica.',
+      ],
+      technicalHighlights: [
+        'Catálogo navegable con filtros funcionales.',
+        'Ordenamiento consistente para mejorar lectura y comparación.',
+        'Clasificación por nivel de amenaza como criterio de jerarquía.',
+        'Diseño visual diferenciado sin sacrificar legibilidad.',
+      ],
       decisions: [
         'Clasificar entidades por nivel de amenaza para facilitar lectura y jerarquía.',
         'Ordenar los resultados por amenaza y nombre para mantener una navegación predecible.',
@@ -112,12 +187,31 @@
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto de inicio a fin',
+      challengeType: 'Challenge técnico individual',
+      objective:
+        'Resolver un challenge de aplicación web con Django, implementando flujos de gestión, navegación consistente y funcionalidades útiles para el usuario.',
+      ownership:
+        'Desarrollé el proyecto completo: rutas, vistas, templates, flujos CRUD, autenticación, estilos y mejoras funcionales sobre el alcance base.',
       context:
         'Challenge técnico orientado a construir una aplicación web funcional con Django, flujos de gestión y navegación consistente.',
       challenge:
         'El principal desafío fue implementar flujos completos y mantener una experiencia clara, incluyendo mejoras que aportaran valor más allá del alcance mínimo.',
       approach:
         'Se desarrollaron vistas, rutas, templates y flujos de interacción, priorizando funcionalidad, estructura y una experiencia entendible para el usuario.',
+      result:
+        'El proyecto demuestra manejo de flujos web en Django, organización de vistas/templates y criterio para completar funcionalidades más allá del mínimo requerido.',
+      scope: [
+        'Definición de rutas, vistas y templates para los flujos principales.',
+        'Implementación de operaciones CRUD y navegación entre secciones.',
+        'Trabajo con autenticación y vistas protegidas según el flujo del challenge.',
+        'Pulido de interfaz para mantener consistencia en la experiencia.',
+      ],
+      technicalHighlights: [
+        'Flujos CRUD funcionales.',
+        'Uso de autenticación y vistas protegidas.',
+        'Organización de rutas, vistas y templates en Django.',
+        'Mejoras funcionales agregadas sobre el alcance base del challenge.',
+      ],
       decisions: [
         'Mantener una navegación clara entre las secciones principales.',
         'Agregar acciones útiles para completar mejor el flujo de gestión.',
