@@ -16,8 +16,9 @@ const { project } = Astro.props;
 
 <BaseLayout
   title={`${project.name} | Caso de estudio`}
-  description={`${project.name}: ${project.summary}`}
+  description={project.seoDescription}
   image={project.images.case}
+  type="article"
 >
   <div class="page-shell">
     <Header />

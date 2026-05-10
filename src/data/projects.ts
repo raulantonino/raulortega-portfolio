@@ -3,6 +3,7 @@ export type Project = {
   name: string;
   type: string;
   summary: string;
+  seoDescription: string;
   problem: string;
   solution: string;
   technologies: string[];
@@ -40,6 +41,8 @@ export const featuredProjects: Project[] = [
     type: 'Aplicación web con integración de API externa',
     summary:
       'Aplicación Django para construir una party Pokémon usando datos reales desde PokeAPI.',
+    seoDescription:
+      'Caso de estudio de Pokeparty, aplicación Django con consumo de PokeAPI, transformación de datos y demo desplegada.',
     problem:
       'El desafío consistía en consumir una API externa, transformar datos y presentar una experiencia clara para comparar y construir equipos.',
     solution:
@@ -107,6 +110,8 @@ export const featuredProjects: Project[] = [
     type: 'Catálogo web con Django',
     summary:
       'Catálogo de criaturas con filtros, ordenamiento, clasificación por amenaza y estética retro/editorial.',
+    seoDescription:
+      'Caso de estudio de Mystale Catalog, catálogo Django con filtros, ordenamiento y clasificación de entidades.',
     problem:
       'El proyecto requería organizar entidades, filtros y jerarquías visuales de forma clara y navegable.',
     solution:
@@ -171,6 +176,8 @@ export const featuredProjects: Project[] = [
     type: 'Aplicación web Django',
     summary:
       'Proyecto web de gestión inspirado en el universo Pokémon, desarrollado como challenge técnico con Django.',
+    seoDescription:
+      'Caso de estudio de PokeProfe Oak, aplicación Django con flujos CRUD, autenticación y navegación protegida.',
     problem:
       'El desafío buscaba implementar flujos funcionales, vistas protegidas y una experiencia de uso consistente.',
     solution:
