@@ -6,6 +6,7 @@ import { profile } from '../../data/profile';
   <div class="container hero-inner">
     <div class="hero-copy">
       <h1>{profile.displayName}</h1>
+      <div aria-hidden="true" style="width: 48px; height: 2.5px; background: var(--color-accent); border-radius: 2px; margin: 0.75rem 0 1.25rem;"></div>
 
       <p class="hero-role">{profile.role}</p>
 
@@ -16,8 +17,6 @@ import { profile } from '../../data/profile';
         <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
-
-      <p class="hero-location">{profile.location}</p>
     </div>
 
     <div class="hero-portrait">
@@ -38,7 +37,7 @@ import { profile } from '../../data/profile';
 
 <style>
   .hero {
-    padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+    padding: 3rem 0 clamp(4rem, 8vw, 6rem);
     background: var(--color-bg);
   }
 
@@ -87,13 +86,6 @@ import { profile } from '../../data/profile';
     margin-top: 1.55rem;
   }
 
-  .hero-location {
-    margin: 0.85rem 0 0;
-    color: var(--color-muted);
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-
   .hero-portrait {
     align-self: flex-start;
     flex-shrink: 0;
@@ -119,7 +111,7 @@ import { profile } from '../../data/profile';
 
   @media (max-width: 720px) {
     .hero {
-      padding: 4rem 0 3.25rem;
+      padding: 3rem 0 3.25rem;
     }
 
     .hero-inner {
@@ -137,6 +129,7 @@ import { profile } from '../../data/profile';
 
     .hero-portrait img {
       aspect-ratio: 1 / 1;
+      object-position: center 20%;
     }
   }
 </style>
