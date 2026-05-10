@@ -11,7 +11,7 @@
       'Se desarrolló una aplicación web con foco en estructura backend, consumo de datos, presentación visual cuidada y documentación técnica.',
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     repoUrl: 'https://github.com/raulantonino/pokeparty',
-    demoUrl: '',
+    demoUrl: 'https://pokeparty-keqn.onrender.com',
     images: {
       preview: '/images/projects/pokeparty-preview.jpg',
       case: '/images/projects/pokeparty-case.jpg',

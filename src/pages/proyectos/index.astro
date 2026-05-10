@@ -56,6 +56,7 @@ import { allProjects } from '../../data/projects';
                 </ul>
 
                 <div class="project-links">
+                  {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
                   <a href={`/proyectos/${project.slug}`}>Ver caso</a>
                   <a href={project.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
                 </div>
@@ -195,6 +196,7 @@ import { allProjects } from '../../data/projects';
 
   .project-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1.15rem;
     font-weight: 780;

@@ -45,6 +45,7 @@ const projects = featuredProjects.slice(0, 3);
           </ul>
 
           <div class="project-links">
+            {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
             <a href={`/proyectos/${project.slug}`}>Ver caso</a>
             <a href={project.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
           </div>
@@ -189,6 +190,7 @@ const projects = featuredProjects.slice(0, 3);
 
   .project-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1.1rem;
     font-weight: 780;

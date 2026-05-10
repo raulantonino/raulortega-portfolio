@@ -35,8 +35,8 @@ const { project } = Astro.props;
             <p>{project.summary}</p>
 
             <div class="case-links">
+              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
               <a href={project.repoUrl} target="_blank" rel="noreferrer">Ver GitHub</a>
-              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer">Ver demo</a>}
               <a href="/proyectos">Volver a proyectos</a>
             </div>
           </div>
