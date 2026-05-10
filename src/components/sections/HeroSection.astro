@@ -11,12 +11,10 @@ import { profile } from '../../data/profile';
 
       <p class="hero-headline">{profile.headline}</p>
 
-      <p class="hero-summary">{profile.summary}</p>
-
       <div class="button-row hero-actions">
-        <a class="button button--primary" href="/#proyectos">Ver proyectos</a>
-        <a class="button button--secondary" href={profile.links.cv} target="_blank" rel="noopener noreferrer">Descargar CV</a>
+        <a class="button button--primary" href={profile.links.cv} target="_blank" rel="noopener noreferrer">Descargar CV</a>
         <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
 
       <p class="hero-location">{profile.location}</p>
@@ -46,8 +44,9 @@ import { profile } from '../../data/profile';
 
   .hero-inner {
     display: flex;
+    flex-direction: row;
     gap: 4rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .hero-copy {
@@ -84,14 +83,6 @@ import { profile } from '../../data/profile';
     letter-spacing: 0;
   }
 
-  .hero-summary {
-    margin: 1rem 0 0;
-    max-width: 640px;
-    color: var(--color-muted);
-    font-size: 1.05rem;
-    line-height: 1.75;
-  }
-
   .hero-actions {
     margin-top: 1.55rem;
   }
@@ -104,8 +95,9 @@ import { profile } from '../../data/profile';
   }
 
   .hero-portrait {
+    align-self: flex-start;
     flex-shrink: 0;
-    width: 280px;
+    width: 260px;
   }
 
   .hero-portrait picture,
@@ -119,6 +111,7 @@ import { profile } from '../../data/profile';
     height: auto;
     border-radius: 0.75rem;
     object-fit: cover;
+    object-position: center top;
     box-shadow:
       0 1px 3px rgba(15, 23, 42, 0.06),
       0 8px 24px rgba(15, 23, 42, 0.08);
@@ -138,6 +131,8 @@ import { profile } from '../../data/profile';
     .hero-portrait {
       order: -1;
       width: min(100%, 140px);
+      max-width: 140px;
+      margin: 0 auto;
     }
 
     .hero-portrait img {
