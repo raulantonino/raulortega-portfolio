@@ -3,7 +3,7 @@ import { profile } from '../../data/profile';
 ---
 
 <section id="inicio" class="hero">
-  <div class="container">
+  <div class="container hero-inner">
     <div class="hero-copy">
       <h1>{profile.displayName}</h1>
 
@@ -19,11 +19,21 @@ import { profile } from '../../data/profile';
         <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
 
-      <div class="hero-links" aria-label="Enlaces rápidos">
-        <a class="text-link" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="text-link" href={profile.links.email}>{profile.email}</a>
-        <span>{profile.location}</span>
-      </div>
+      <p class="hero-location">{profile.location}</p>
+    </div>
+
+    <div class="hero-portrait">
+      <picture>
+        <source srcset={profile.imageWebp} type="image/webp" />
+        <img
+          src={profile.image}
+          alt={`Retrato de ${profile.formalName}`}
+          width="640"
+          height="853"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
     </div>
   </div>
 </section>
@@ -34,7 +44,14 @@ import { profile } from '../../data/profile';
     background: var(--color-bg);
   }
 
+  .hero-inner {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+  }
+
   .hero-copy {
+    flex: 1;
     max-width: 680px;
   }
 
@@ -42,17 +59,17 @@ import { profile } from '../../data/profile';
     margin: 0;
     color: var(--color-heading);
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 6vw, 5rem);
+    font-size: clamp(2.8rem, 4.5vw, 3.8rem);
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: 0;
   }
 
   .hero-role {
     margin: 0.9rem 0 0;
-    color: var(--color-primary-deep);
-    font-size: clamp(1.12rem, 2vw, 1.45rem);
-    font-weight: 760;
+    color: var(--color-muted);
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 1.3;
     letter-spacing: 0;
   }
@@ -60,10 +77,10 @@ import { profile } from '../../data/profile';
   .hero-headline {
     margin: 2rem 0 0;
     max-width: 660px;
-    color: var(--color-heading);
-    font-size: clamp(1.45rem, 2.2vw, 1.9rem);
-    font-weight: 680;
-    line-height: 1.26;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
     letter-spacing: 0;
   }
 
@@ -79,19 +96,32 @@ import { profile } from '../../data/profile';
     margin-top: 1.55rem;
   }
 
-  .hero-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem 1rem;
-    align-items: center;
-    margin-top: 1rem;
+  .hero-location {
+    margin: 0.85rem 0 0;
     color: var(--color-muted);
-    font-size: 0.95rem;
-    font-weight: 680;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
-  .hero-links span {
-    color: var(--color-muted);
+  .hero-portrait {
+    flex-shrink: 0;
+    width: 280px;
+  }
+
+  .hero-portrait picture,
+  .hero-portrait img {
+    display: block;
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    box-shadow:
+      0 1px 3px rgba(15, 23, 42, 0.06),
+      0 8px 24px rgba(15, 23, 42, 0.08);
   }
 
   @media (max-width: 720px) {
@@ -99,9 +129,19 @@ import { profile } from '../../data/profile';
       padding: 4rem 0 3.25rem;
     }
 
-    .hero-links {
-      align-items: flex-start;
+    .hero-inner {
       flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .hero-portrait {
+      order: -1;
+      width: min(100%, 140px);
+    }
+
+    .hero-portrait img {
+      aspect-ratio: 1 / 1;
     }
   }
 </style>
