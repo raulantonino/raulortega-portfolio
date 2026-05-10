@@ -7,10 +7,10 @@ const projects = featuredProjects.slice(0, 3);
 <section id="proyectos" class="projects-section">
   <div class="container section-header">
     <p class="eyebrow">Proyectos destacados</p>
-    <h2>Proyectos desarrollados de inicio a fin como casos de estudio.</h2>
+    <h2>Proyectos Django con evidencia técnica concreta.</h2>
     <p>
-      Cada proyecto muestra problema, solución, decisiones técnicas, evidencia
-      de implementación y enlaces para revisar código o demo cuando corresponde.
+      Una selección breve de proyectos desarrollados de inicio a fin, con foco en
+      backend, datos, reglas de negocio y código revisable.
     </p>
   </div>
 
@@ -19,46 +19,19 @@ const projects = featuredProjects.slice(0, 3);
       <article class="project-feature">
         <div class="project-index">0{index + 1}</div>
 
-        <div class="project-media">
-          <picture>
-            <source srcset={project.images.previewWebp} type="image/webp" />
-            <img
-              src={project.images.preview}
-              alt={`Captura de ${project.name}`}
-              width="960"
-              height="1200"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        </div>
-
         <div class="project-content">
           <p class="project-type">{project.type}</p>
           <h3>{project.name}</h3>
           <p class="summary">{project.summary}</p>
 
-          <div class="project-proof">
-            <strong>Qué demuestra</strong>
+          <div class="project-evidence">
             <ul>
-              {project.caseStudy.technicalHighlights.slice(0, 3).map((highlight) => <li>{highlight}</li>)}
+              {project.caseStudy.technicalHighlights.slice(0, 2).map((highlight) => <li>{highlight}</li>)}
             </ul>
           </div>
 
-          <div class="project-points">
-            <div>
-              <strong>Problema</strong>
-              <p>{project.problem}</p>
-            </div>
-
-            <div>
-              <strong>Solución</strong>
-              <p>{project.solution}</p>
-            </div>
-          </div>
-
           <ul class="tech-list">
-            {project.technologies.slice(0, 6).map((tech) => <li>{tech}</li>)}
+            {project.technologies.slice(0, 5).map((tech) => <li>{tech}</li>)}
           </ul>
 
           <div class="project-links">
@@ -112,9 +85,9 @@ const projects = featuredProjects.slice(0, 3);
 
   .project-feature {
     display: grid;
-    grid-template-columns: 4rem minmax(220px, 0.38fr) minmax(0, 1fr);
+    grid-template-columns: 3rem minmax(0, 1fr);
     gap: 1.2rem;
-    padding: 1rem;
+    padding: clamp(1rem, 3vw, 1.35rem);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     background: var(--color-surface);
@@ -127,29 +100,8 @@ const projects = featuredProjects.slice(0, 3);
     font-weight: 850;
   }
 
-  .project-media {
-    overflow: hidden;
-    min-height: 230px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface-soft);
-  }
-
-  .project-media img {
-    width: 100%;
-    height: 100%;
-    min-height: 230px;
-    object-fit: cover;
-  }
-
-  .project-media picture {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
   .project-content {
-    padding: 0.35rem 0.2rem;
+    padding: 0.1rem 0;
   }
 
   .project-type {
@@ -170,52 +122,20 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .summary,
-  .project-points p,
-  .project-proof li {
+  .project-evidence li {
     color: var(--color-muted);
     line-height: 1.68;
   }
 
-  .project-proof {
-    margin-top: 1rem;
-    padding: 0.95rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-surface-soft);
-  }
-
-  .project-proof strong {
-    color: var(--color-heading);
-    font-size: 0.86rem;
-  }
-
-  .project-proof ul {
+  .project-evidence ul {
     display: grid;
     gap: 0.35rem;
-    margin: 0.55rem 0 0;
+    margin: 0.9rem 0 0;
     padding-left: 1.1rem;
   }
 
-  .project-proof li {
+  .project-evidence li {
     padding-left: 0.1rem;
-  }
-
-  .project-points {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .project-points strong {
-    color: var(--color-heading);
-    font-size: 0.86rem;
-  }
-
-  .project-points p {
-    margin: 0.35rem 0 0;
   }
 
   .tech-list {
@@ -260,8 +180,7 @@ const projects = featuredProjects.slice(0, 3);
 
   @media (max-width: 960px) {
     .section-header,
-    .project-feature,
-    .project-points {
+    .project-feature {
       grid-template-columns: 1fr;
     }
 
