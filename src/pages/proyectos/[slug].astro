@@ -33,12 +33,15 @@ const { project } = Astro.props;
 
           <div class="case-summary">
             <p>{project.summary}</p>
+            <p class="case-objective"><strong>Objetivo:</strong> {project.caseStudy.objective}</p>
 
             <div class="case-links">
               {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
               <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">Ver GitHub</a>
               <a href="/proyectos">Volver a proyectos</a>
             </div>
+
+            {project.demoNote && <p class="demo-note">{project.demoNote}</p>}
           </div>
         </div>
       </section>
@@ -67,6 +70,14 @@ const { project } = Astro.props;
             <div class="sidebar-card">
               <p class="eyebrow">Rol</p>
               <p>{project.caseStudy.role}</p>
+              <span>{project.caseStudy.challengeType}</span>
+            </div>
+
+            <div class="sidebar-card">
+              <p class="eyebrow">Alcance</p>
+              <ul class="sidebar-list">
+                {project.caseStudy.scope.map((item) => <li>{item}</li>)}
+              </ul>
             </div>
 
             <div class="sidebar-card">
@@ -82,6 +93,7 @@ const { project } = Astro.props;
               <p class="eyebrow">Contexto</p>
               <h2>De qué se trató el proyecto</h2>
               <p>{project.caseStudy.context}</p>
+              <p>{project.caseStudy.ownership}</p>
             </article>
 
             <article class="case-block">
@@ -94,6 +106,15 @@ const { project } = Astro.props;
               <p class="eyebrow">Solución</p>
               <h2>Enfoque aplicado</h2>
               <p>{project.caseStudy.approach}</p>
+            </article>
+
+            <article class="case-block">
+              <p class="eyebrow">Resultado</p>
+              <h2>Resultado y evidencia</h2>
+              <p>{project.caseStudy.result}</p>
+              <ul>
+                {project.caseStudy.technicalHighlights.map((highlight) => <li>{highlight}</li>)}
+              </ul>
             </article>
 
             <article class="case-block">
@@ -164,6 +185,14 @@ const { project } = Astro.props;
     line-height: 1.78;
   }
 
+  .case-objective {
+    margin-top: 1rem !important;
+  }
+
+  .case-objective strong {
+    color: var(--color-heading);
+  }
+
   .case-links {
     display: flex;
     flex-wrap: wrap;
@@ -180,6 +209,17 @@ const { project } = Astro.props;
   .case-links a:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
+  }
+
+  .demo-note {
+    margin-top: 0.9rem !important;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--color-border-blue);
+    border-radius: var(--radius-md);
+    background: var(--color-primary-soft);
+    color: var(--color-primary-deep) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
   }
 
   .case-media-section {
@@ -242,6 +282,23 @@ const { project } = Astro.props;
     margin: 0;
     color: var(--color-heading);
     font-weight: 700;
+    line-height: 1.55;
+  }
+
+  .sidebar-card span {
+    display: block;
+    margin-top: 0.45rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .sidebar-list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--color-muted);
     line-height: 1.55;
   }
 

@@ -51,6 +51,11 @@ import { allProjects } from '../../data/projects';
                 <h2>{project.name}</h2>
                 <p>{project.summary}</p>
 
+                <div class="project-meta">
+                  <span>{project.caseStudy.challengeType}</span>
+                  <span>{project.caseStudy.role}</span>
+                </div>
+
                 <div class="project-detail">
                   <strong>Problema</strong>
                   <span>{project.problem}</span>
@@ -59,6 +64,13 @@ import { allProjects } from '../../data/projects';
                 <div class="project-detail">
                   <strong>Solución</strong>
                   <span>{project.solution}</span>
+                </div>
+
+                <div class="project-detail project-detail--list">
+                  <strong>Evidencia</strong>
+                  <ul>
+                    {project.caseStudy.technicalHighlights.slice(0, 3).map((highlight) => <li>{highlight}</li>)}
+                  </ul>
                 </div>
 
                 <ul class="tech-list">
@@ -174,6 +186,23 @@ import { allProjects } from '../../data/projects';
     line-height: 1.75;
   }
 
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .project-meta span {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--color-border-blue);
+    border-radius: var(--radius-sm);
+    color: var(--color-primary-deep);
+    background: var(--color-primary-soft);
+    font-size: 0.78rem;
+    font-weight: 760;
+  }
+
   .project-detail {
     display: grid;
     grid-template-columns: 6rem 1fr;
@@ -188,6 +217,15 @@ import { allProjects } from '../../data/projects';
   }
 
   .project-detail span {
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .project-detail--list ul {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding-left: 1.1rem;
     color: var(--color-muted);
     line-height: 1.6;
   }
@@ -232,6 +270,11 @@ import { allProjects } from '../../data/projects';
     .page-hero-grid,
     .project-card {
       grid-template-columns: 1fr;
+    }
+
+    .project-detail {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
     }
   }
 </style>

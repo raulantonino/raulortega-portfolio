@@ -38,6 +38,13 @@ const projects = featuredProjects.slice(0, 3);
           <h3>{project.name}</h3>
           <p class="summary">{project.summary}</p>
 
+          <div class="project-proof">
+            <strong>Qué demuestra</strong>
+            <ul>
+              {project.caseStudy.technicalHighlights.slice(0, 3).map((highlight) => <li>{highlight}</li>)}
+            </ul>
+          </div>
+
           <div class="project-points">
             <div>
               <strong>Problema</strong>
@@ -163,9 +170,34 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .summary,
-  .project-points p {
+  .project-points p,
+  .project-proof li {
     color: var(--color-muted);
     line-height: 1.68;
+  }
+
+  .project-proof {
+    margin-top: 1rem;
+    padding: 0.95rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-soft);
+  }
+
+  .project-proof strong {
+    color: var(--color-heading);
+    font-size: 0.86rem;
+  }
+
+  .project-proof ul {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0.55rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .project-proof li {
+    padding-left: 0.1rem;
   }
 
   .project-points {
