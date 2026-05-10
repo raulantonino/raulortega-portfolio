@@ -82,6 +82,13 @@ const { project } = Astro.props;
             </div>
 
             <div class="sidebar-card">
+              <p class="eyebrow">Datos clave</p>
+              <ul class="sidebar-list">
+                {project.caseStudy.metrics.map((metric) => <li>{metric}</li>)}
+              </ul>
+            </div>
+
+            <div class="sidebar-card">
               <p class="eyebrow">Tecnologías</p>
               <ul class="tech-list">
                 {project.technologies.map((tech) => <li>{tech}</li>)}
@@ -98,9 +105,18 @@ const { project } = Astro.props;
             </article>
 
             <article class="case-block">
+              <p class="eyebrow">Requisitos</p>
+              <h2>Qué pedía el challenge</h2>
+              <ul>
+                {project.caseStudy.requirements.map((requirement) => <li>{requirement}</li>)}
+              </ul>
+            </article>
+
+            <article class="case-block">
               <p class="eyebrow">Desafío</p>
               <h2>Problema principal</h2>
               <p>{project.caseStudy.challenge}</p>
+              <p>{project.caseStudy.technicalChallenge}</p>
             </article>
 
             <article class="case-block">

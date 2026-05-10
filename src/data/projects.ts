@@ -24,8 +24,11 @@ export type Project = {
     ownership: string;
     context: string;
     challenge: string;
+    technicalChallenge: string;
     approach: string;
     result: string;
+    requirements: string[];
+    metrics: string[];
     scope: string[];
     technicalHighlights: string[];
     decisions: string[];
@@ -67,13 +70,28 @@ export const featuredProjects: Project[] = [
       ownership:
         'Desarrollé la solución completa: estructura Django, integración con API externa, transformación de datos, templates, estilos, documentación y deploy.',
       context:
-        'Proyecto técnico desarrollado como challenge para demostrar manejo de Django, integración con una API externa, organización de datos y presentación de información de forma clara.',
+        'Proyecto técnico desarrollado como challenge Django para capturar Pokémon random por tipo usando PokeAPI y administrar una party con reglas de negocio propias.',
       challenge:
-        'El principal desafío fue transformar datos externos en una experiencia útil para el usuario, manteniendo una estructura ordenada y una interfaz fácil de recorrer.',
+        'El desafío era capturar Pokémon por tipo, guardarlos localmente, administrar una Party de máximo 6, enviar excedentes a la PC Box, ordenar por stats y calcular el mejor equipo posible.',
+      technicalChallenge:
+        'Lo más difícil fue estabilizar la lógica de negocio de Party, Box, liberación, autopromoción y optimización sin romper restricciones del modelo, además de separar bien responsabilidades entre vistas, servicios y modelos.',
       approach:
-        'La solución se trabajó separando responsabilidades, cuidando el flujo de datos desde la API externa hasta la presentación visual, y documentando decisiones técnicas relevantes para que el proyecto fuera entendible como pieza de portafolio.',
+        'La solución se trabajó separando responsabilidades entre modelos, servicios y vistas, cuidando el flujo desde PokeAPI hasta la persistencia local y la presentación del equipo optimizado.',
       result:
         'La aplicación quedó disponible como demo funcional y como repositorio público, mostrando consumo de API externa, flujo de datos y presentación visual del resultado.',
+      requirements: [
+        'Capturar Pokémon random por tipo usando PokeAPI.',
+        'Guardar Pokémon localmente y administrar una Party de máximo 6.',
+        'Enviar excedentes a la PC Box y permitir liberación/autopromoción.',
+        'Ordenar por stats y calcular el mejor equipo posible.',
+      ],
+      metrics: [
+        '1 app principal',
+        '2 modelos principales',
+        'Party máxima de 6 Pokémon',
+        'total_power calculado con 6 stats',
+        'Algoritmo de optimización con 5 prioridades',
+      ],
       scope: [
         'Configuración y estructura base del proyecto Django.',
         'Consumo y procesamiento de datos desde PokeAPI.',
@@ -82,9 +100,9 @@ export const featuredProjects: Project[] = [
       ],
       technicalHighlights: [
         'Integración con una API externa real.',
-        'Transformación de datos antes de presentarlos al usuario.',
-        'Separación entre lógica de datos, vistas y templates.',
-        'Deploy funcional para revisión técnica externa.',
+        'Lógica de Party, PC Box, liberación y autopromoción.',
+        'Cálculo de total_power y mejor equipo posible.',
+        'Separación entre modelos, servicios y vistas.',
       ],
       decisions: [
         'Usar Django como base para organizar vistas, lógica y templates.',
@@ -134,13 +152,31 @@ export const featuredProjects: Project[] = [
       ownership:
         'Implementé la aplicación completa: estructura Django, datos iniciales, filtros, ordenamiento, templates, estilos y documentación del repositorio.',
       context:
-        'Challenge técnico enfocado en construir un catálogo navegable, con datos organizados, filtros y una propuesta visual propia.',
+        'Challenge técnico enfocado en construir un sistema web interno en Django para catalogar criaturas energéticas con templates, SQLite, formulario web, catálogo navegable y migraciones coherentes.',
       challenge:
-        'El desafío fue equilibrar estructura backend, claridad de filtros y una estética visual diferenciada sin perder legibilidad.',
+        'El desafío base pedía catálogo, formulario, filtro por elemento e historial de migraciones; luego lo extendí con detalle, edición, eliminación, filtro por amenaza, seed y tests básicos.',
+      technicalChallenge:
+        'Lo más difícil fue diseñar un modelo donde threat_level no fuera un dato manual, sino derivado automáticamente de las stats, manteniendo al mismo tiempo filtros, ordenamiento y migraciones con una evolución creíble.',
       approach:
-        'Se trabajó una aplicación Django con modelos simples, datos iniciales, ordenamiento, filtros y una interfaz inspirada en una estética retro/editorial.',
+        'Se trabajó una aplicación Django con CBV, modelo principal consistente, datos semilla, filtros por elemento y amenaza, ordenamiento y una interfaz retro/editorial sin perder legibilidad.',
       result:
         'El resultado es un catálogo funcional que permite explorar entidades con una jerarquía clara y una presentación visual distinta al aspecto estándar de un challenge.',
+      requirements: [
+        'Catalogar criaturas energéticas con templates Django y SQLite.',
+        'Agregar formulario web, catálogo navegable y filtro por elemento.',
+        'Mantener un historial de migraciones coherente.',
+        'Extender el alcance con detalle, edición, eliminación, seed, tests y filtro por amenaza.',
+      ],
+      metrics: [
+        '1 entidad principal',
+        '5 vistas principales CRUD con CBV',
+        '2 filtros',
+        '8 elementos',
+        '5 niveles de amenaza',
+        '6 stats para calcular threat_level',
+        '2 migraciones reales',
+        'Seed de 40 criaturas',
+      ],
       scope: [
         'Definición de entidades, atributos y criterios de clasificación.',
         'Implementación de filtros y ordenamiento para exploración del catálogo.',
@@ -148,10 +184,10 @@ export const featuredProjects: Project[] = [
         'Organización del repositorio para facilitar revisión técnica.',
       ],
       technicalHighlights: [
-        'Catálogo navegable con filtros funcionales.',
-        'Ordenamiento consistente para mejorar lectura y comparación.',
-        'Clasificación por nivel de amenaza como criterio de jerarquía.',
-        'Diseño visual diferenciado sin sacrificar legibilidad.',
+        'CBV para flujos principales de catálogo y CRUD.',
+        'threat_level derivado automáticamente desde stats.',
+        'Filtros por elemento y nivel de amenaza.',
+        'Seed de 40 criaturas y tests básicos.',
       ],
       decisions: [
         'Clasificar entidades por nivel de amenaza para facilitar lectura y jerarquía.',
@@ -200,13 +236,28 @@ export const featuredProjects: Project[] = [
       ownership:
         'Desarrollé el proyecto completo: rutas, vistas, templates, flujos CRUD, autenticación, estilos y mejoras funcionales sobre el alcance base.',
       context:
-        'Challenge técnico orientado a construir una aplicación web funcional con Django, flujos de gestión y navegación consistente.',
+        'Challenge técnico orientado a construir un sistema de reservas en Django para que un entrenador pudiera registrarse, iniciar sesión, elegir criatura inicial, seleccionar horario, confirmar reserva y revisarla después.',
       challenge:
-        'El principal desafío fue implementar flujos completos y mantener una experiencia clara, incluyendo mejoras que aportaran valor más allá del alcance mínimo.',
+        'El sistema debía permitir reservas desde el lado del usuario y administración de criaturas, horarios y reservas desde el admin para el Profesor Oak.',
+      technicalChallenge:
+        'Lo más difícil fue hacer robusto el flujo de reservas del lado servidor: una reserva activa por usuario, disponibilidad dinámica, validaciones correctas, wizard con sesión y confirmación protegida frente a inconsistencias.',
       approach:
-        'Se desarrollaron vistas, rutas, templates y flujos de interacción, priorizando funcionalidad, estructura y una experiencia entendible para el usuario.',
+        'Se desarrolló un flujo de reserva por pasos con validaciones de servidor, cálculo dinámico de cupos, consultas optimizadas y protección transaccional para evitar inconsistencias.',
       result:
         'El proyecto demuestra manejo de flujos web en Django, organización de vistas/templates y criterio para completar funcionalidades más allá del mínimo requerido.',
+      requirements: [
+        'Registro e inicio de sesión de entrenadores.',
+        'Selección de criatura inicial y horario disponible.',
+        'Confirmación y visualización posterior de la reserva.',
+        'Administración de criaturas, horarios y reservas desde Django admin.',
+      ],
+      metrics: [
+        '1 app principal',
+        '3 modelos principales',
+        '1 reserva activa por usuario',
+        'Flujo de reserva de 3 pasos principales',
+        'Mejora extra de cancelación de reserva',
+      ],
       scope: [
         'Definición de rutas, vistas y templates para los flujos principales.',
         'Implementación de operaciones CRUD y navegación entre secciones.',
@@ -214,10 +265,10 @@ export const featuredProjects: Project[] = [
         'Pulido de interfaz para mantener consistencia en la experiencia.',
       ],
       technicalHighlights: [
-        'Flujos CRUD funcionales.',
-        'Uso de autenticación y vistas protegidas.',
-        'Organización de rutas, vistas y templates en Django.',
-        'Mejoras funcionales agregadas sobre el alcance base del challenge.',
+        'OneToOneField para limitar una reserva activa por usuario.',
+        'Cálculo dinámico de cupos disponibles.',
+        'Uso de select_related para optimizar consultas.',
+        'Uso de transaction.atomic() y select_for_update() en confirmación.',
       ],
       decisions: [
         'Mantener una navegación clara entre las secciones principales.',
