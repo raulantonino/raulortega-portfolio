@@ -11,14 +11,16 @@
       'Se desarrolló una aplicación web con foco en estructura backend, consumo de datos, presentación visual cuidada y documentación técnica.',
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     repoUrl: 'https://github.com/raulantonino/pokeparty',
-    demoUrl: '',
+    demoUrl: 'https://pokeparty-keqn.onrender.com',
     images: {
       preview: '/images/projects/pokeparty-preview.jpg',
+      previewWebp: '/images/projects/pokeparty-preview.webp',
       case: '/images/projects/pokeparty-case.jpg',
+      caseWebp: '/images/projects/pokeparty-case.webp',
     },
     featured: true,
     caseStudy: {
-      role: 'Desarrollador del proyecto',
+      role: 'Desarrollador del proyecto de inicio a fin',
       context:
         'Proyecto técnico desarrollado como challenge para demostrar manejo de Django, integración con una API externa, organización de datos y presentación de información de forma clara.',
       challenge:
@@ -58,11 +60,13 @@
     demoUrl: '',
     images: {
       preview: '/images/projects/mystale-catalog-preview.jpg',
+      previewWebp: '/images/projects/mystale-catalog-preview.webp',
       case: '/images/projects/mystale-catalog-case.jpg',
+      caseWebp: '/images/projects/mystale-catalog-case.webp',
     },
     featured: true,
     caseStudy: {
-      role: 'Desarrollador del proyecto',
+      role: 'Desarrollador del proyecto de inicio a fin',
       context:
         'Challenge técnico enfocado en construir un catálogo navegable, con datos organizados, filtros y una propuesta visual propia.',
       challenge:
@@ -101,11 +105,13 @@
     demoUrl: '',
     images: {
       preview: '/images/projects/pokeprofe-oak-preview.jpg',
+      previewWebp: '/images/projects/pokeprofe-oak-preview.webp',
       case: '/images/projects/pokeprofe-oak-case.jpg',
+      caseWebp: '/images/projects/pokeprofe-oak-case.webp',
     },
     featured: true,
     caseStudy: {
-      role: 'Desarrollador del proyecto',
+      role: 'Desarrollador del proyecto de inicio a fin',
       context:
         'Challenge técnico orientado a construir una aplicación web funcional con Django, flujos de gestión y navegación consistente.',
       challenge:

@@ -1,4 +1,4 @@
-﻿---
+---
 import { profile } from '../../data/profile';
 ---
 
@@ -11,14 +11,15 @@ import { profile } from '../../data/profile';
 
     <div class="contact-content">
       <p>
-        Puedes revisar mis proyectos en GitHub, contactarme por correo o conectar conmigo
-        en LinkedIn. Este sitio seguirá creciendo como una versión web más completa de mi perfil profesional.
+        Me interesa integrarme a equipos donde pueda crecer técnicamente y aportar en desarrollo web,
+        backend o roles que conecten tecnología, datos y negocio. Puedes escribirme por correo,
+        revisar mi GitHub o conectar conmigo en LinkedIn.
       </p>
 
       <div class="button-row">
         <a class="button button--primary" href={profile.links.email}>Enviar correo</a>
-        <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </div>
@@ -47,7 +48,7 @@ import { profile } from '../../data/profile';
     color: var(--color-heading);
     font-size: clamp(2rem, 4vw, 3.15rem);
     line-height: 1.06;
-    letter-spacing: -0.058em;
+    letter-spacing: 0;
   }
 
   .contact-content p {

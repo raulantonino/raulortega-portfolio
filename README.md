@@ -1,43 +1,137 @@
-# Astro Starter Kit: Minimal
+# Portfolio profesional - Raul Ortega
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Portfolio web profesional de Raul Ortega Huenuil, desarrollado con Astro y
+desplegado en Cloudflare. El sitio presenta un perfil orientado principalmente
+al desarrollo web trainee/junior, con una base complementaria de Ingenieria
+Civil Industrial aplicada a datos, procesos y criterio de negocio.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Objetivo
 
-## 🚀 Project Structure
+Este proyecto funciona como CV web y portafolio tecnico. Busca que recruiters,
+equipos tecnicos y empresas puedan entender rapidamente:
 
-Inside of your Astro project, you'll see the following folders and files:
+- quien soy;
+- que tipo de rol busco;
+- que tecnologias manejo;
+- que proyectos demuestran mi aprendizaje;
+- como contactarme o revisar mi trabajo.
+
+## Stack principal
+
+- Astro
+- TypeScript
+- CSS personalizado
+- Cloudflare Workers/Assets
+- Wrangler
+- Git y GitHub
+
+El portfolio no usa React, Tailwind, base de datos, backend propio ni formulario
+de contacto. La prioridad es mantener una web estatica, rapida, clara y facil
+de auditar.
+
+## Estructura del proyecto
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+.
+|-- docs/
+|   |-- deploy_security.md
+|   |-- project_decisions.md
+|   `-- visual_direction.md
+|-- public/
+|   |-- _headers
+|   |-- cv/
+|   |-- images/
+|   |-- favicon.ico
+|   |-- favicon.svg
+|   `-- robots.txt
+|-- src/
+|   |-- components/
+|   |-- data/
+|   |-- layouts/
+|   |-- pages/
+|   `-- styles/
+|-- astro.config.mjs
+|-- package.json
+|-- tsconfig.json
+`-- wrangler.jsonc
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Contenido editable
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+La informacion principal del portfolio esta centralizada en `src/data/`:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `profile.ts`: datos personales, enlaces y posicionamiento.
+- `projects.ts`: proyectos, tecnologias, links y casos de estudio.
+- `experience.ts`: experiencia relevante y formacion.
+- `skills.ts`: grupos de habilidades.
 
-## 🧞 Commands
+Las paginas se encuentran en `src/pages/` y los componentes reutilizables en
+`src/components/`.
 
-All commands are run from the root of the project, from a terminal:
+## Scripts disponibles
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```sh
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run deploy
+```
 
-## 👀 Want to learn more?
+Notas:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `npm run build` genera el sitio con el adapter de Cloudflare.
+- En entornos locales, Wrangler/Miniflare puede escribir logs temporales fuera
+  del repositorio.
+- `npm run preview` ejecuta build y luego levanta `wrangler dev`.
+
+## Rutas principales
+
+- `/`
+- `/sobre-mi`
+- `/proyectos`
+- `/proyectos/pokeparty`
+- `/proyectos/mystale-catalog`
+- `/proyectos/pokeprofe-oak`
+
+## Seguridad y deploy
+
+El archivo `public/_headers` define headers de seguridad para produccion:
+
+- `Content-Security-Policy`
+- `X-Frame-Options`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `Permissions-Policy`
+- `Strict-Transport-Security`
+
+El checklist de validacion posterior al deploy esta documentado en
+`docs/deploy_security.md`.
+
+## Verificacion recomendada
+
+Antes de publicar cambios:
+
+```sh
+npm run build
+```
+
+Despues del deploy:
+
+```sh
+curl -I https://raulortega.cl
+curl -I https://raulortega.cl/proyectos/
+curl -I https://raulortega.cl/cv/raul-ortega-cv.pdf
+```
+
+## Estado del proyecto
+
+El sitio es una primera version profesional del portfolio. Las mejoras
+priorizadas son:
+
+1. seguridad y deploy estable;
+2. evidencia visible de proyectos;
+3. accesibilidad basica;
+4. SEO tecnico;
+5. performance de imagenes;
+6. contenido y marca personal.

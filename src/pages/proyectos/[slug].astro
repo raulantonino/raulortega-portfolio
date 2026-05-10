@@ -22,7 +22,7 @@ const { project } = Astro.props;
   <div class="page-shell">
     <Header />
 
-    <main>
+    <main id="contenido-principal" tabindex="-1">
       <section class="case-hero">
         <div class="container case-hero-grid">
           <div>
@@ -35,8 +35,8 @@ const { project } = Astro.props;
             <p>{project.summary}</p>
 
             <div class="case-links">
-              <a href={project.repoUrl} target="_blank" rel="noreferrer">Ver GitHub</a>
-              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer">Ver demo</a>}
+              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">Ver GitHub</a>
               <a href="/proyectos">Volver a proyectos</a>
             </div>
           </div>
@@ -46,7 +46,17 @@ const { project } = Astro.props;
       <section class="case-media-section">
         <div class="container">
           <div class="case-media">
-            <img src={project.images.case} alt={`Captura principal de ${project.name}`} loading="lazy" />
+            <picture>
+              <source srcset={project.images.caseWebp} type="image/webp" />
+              <img
+                src={project.images.case}
+                alt={`Captura principal de ${project.name}`}
+                width="1600"
+                height="900"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -135,7 +145,7 @@ const { project } = Astro.props;
     color: var(--color-heading);
     font-size: clamp(3rem, 7vw, 5.2rem);
     line-height: 0.98;
-    letter-spacing: -0.08em;
+    letter-spacing: 0;
   }
 
   .project-type {
@@ -189,6 +199,12 @@ const { project } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .case-media picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .case-content-section {
@@ -261,7 +277,7 @@ const { project } = Astro.props;
     color: var(--color-heading);
     font-size: clamp(1.5rem, 3vw, 2.2rem);
     line-height: 1.1;
-    letter-spacing: -0.055em;
+    letter-spacing: 0;
   }
 
   .case-block p,

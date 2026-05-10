@@ -6,13 +6,15 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  robots?: string;
 }
 
 const {
   title = 'Raúl Ortega Huenuil | Portfolio profesional',
-  description = 'Portfolio profesional de Raúl Ortega Huenuil, Desarrollador Full Stack Trainee e Ingeniero Civil Industrial orientado al desarrollo web con Python, Django y SQL.',
+  description = 'Portfolio profesional de Raúl Ortega Huenuil, Desarrollador Full Stack Trainee con base en Ingeniería Civil Industrial, enfocado en Python, Django y SQL.',
   image = '/images/profile.jpg',
   type = 'website',
+  robots = 'index, follow',
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
@@ -27,7 +29,7 @@ const imageUrl = new URL(image, Astro.site ?? Astro.url.origin);
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalUrl} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -49,6 +51,7 @@ const imageUrl = new URL(image, Astro.site ?? Astro.url.origin);
   </head>
 
   <body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
     <slot />
   </body>
 </html>

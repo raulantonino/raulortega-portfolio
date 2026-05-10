@@ -1,4 +1,4 @@
-﻿---
+---
 import { profile } from '../../data/profile';
 ---
 
@@ -10,9 +10,10 @@ import { profile } from '../../data/profile';
     </div>
 
     <div class="footer-links" aria-label="Enlaces profesionales">
+      <a href="/sobre-mi">Sobre mí</a>
       <a href={profile.links.email}>Email</a>
-      <a href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
+      <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 </footer>
@@ -38,7 +39,7 @@ import { profile } from '../../data/profile';
     margin: 0;
     color: var(--color-heading);
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: 0;
   }
 
   .footer-copy {

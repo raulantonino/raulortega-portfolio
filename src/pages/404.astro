@@ -1,14 +1,14 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 ---
 
-<BaseLayout title="Página no encontrada | Raúl Ortega">
+<BaseLayout title="Página no encontrada | Raúl Ortega" robots="noindex, follow">
   <div class="page-shell">
     <Header />
 
-    <main class="not-found">
+    <main id="contenido-principal" class="not-found" tabindex="-1">
       <section class="container">
         <p class="eyebrow">Error 404</p>
         <h1>Página no encontrada.</h1>
@@ -41,7 +41,7 @@ import Footer from '../components/layout/Footer.astro';
     color: var(--color-heading);
     font-size: clamp(3rem, 8vw, 5.5rem);
     line-height: 0.98;
-    letter-spacing: -0.08em;
+    letter-spacing: 0;
   }
 
   .not-found p:not(.eyebrow) {

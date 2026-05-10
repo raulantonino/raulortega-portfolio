@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -8,12 +8,12 @@ import { education, featuredExperience } from '../data/experience';
 
 <BaseLayout
   title={`Sobre mí | ${profile.displayName}`}
-  description={`Perfil profesional de ${profile.formalName}, desarrollador trainee e Ingeniero Civil Industrial.`}
+  description={`Perfil profesional de ${profile.formalName}, desarrollador trainee con base en Ingeniería Civil Industrial.`}
 >
   <div class="page-shell">
     <Header />
 
-    <main>
+    <main id="contenido-principal" tabindex="-1">
       <section class="page-hero">
         <div class="container page-hero-grid">
           <div>
@@ -22,9 +22,9 @@ import { education, featuredExperience } from '../data/experience';
           </div>
 
           <p>
-            Soy Ingeniero Civil Industrial y actualmente estoy orientando mi perfil al
-            desarrollo web, con foco en Python, Django, SQL y construcción de aplicaciones
-            claras, mantenibles y pensadas para el uso real.
+            Soy Desarrollador Full Stack Trainee con base en Ingeniería Civil Industrial.
+            Mi foco está en desarrollo web con Python, Django y SQL, sumando una mirada
+            analítica sobre datos, procesos y necesidades de negocio.
           </p>
         </div>
       </section>
@@ -39,15 +39,15 @@ import { education, featuredExperience } from '../data/experience';
           <div class="rich-text">
             <p>
               Me interesa construir soluciones web que no solo funcionen, sino que también
-              sean ordenadas, comprensibles y fáciles de mantener. Mi formación en ingeniería
-              me ha dado una mirada analítica sobre procesos, datos y mejora continua, mientras
-              que mi formación reciente en desarrollo me ha permitido trabajar con aplicaciones
-              web, backend, bases de datos y control de versiones.
+              sean ordenadas, comprensibles y fáciles de mantener. Mi formación técnica reciente
+              está centrada en aplicaciones web, backend, bases de datos y control de versiones;
+              mi formación como Ingeniero Civil Industrial suma criterio para entender procesos,
+              datos, prioridades y operación real.
             </p>
 
             <p>
-              Actualmente busco integrarme a un equipo en roles trainee o junior, donde pueda
-              seguir creciendo técnicamente, aportar orden y aprender desde proyectos reales.
+              Actualmente busco integrarme a un equipo en roles trainee o junior, especialmente
+              en desarrollo web, backend o posiciones híbridas entre tecnología, datos y negocio.
             </p>
           </div>
         </div>
@@ -118,7 +118,7 @@ import { education, featuredExperience } from '../data/experience';
     color: var(--color-heading);
     font-size: clamp(3rem, 7vw, 5.2rem);
     line-height: 0.98;
-    letter-spacing: -0.08em;
+    letter-spacing: 0;
   }
 
   .page-hero p:not(.eyebrow) {
@@ -144,7 +144,7 @@ import { education, featuredExperience } from '../data/experience';
     color: var(--color-heading);
     font-size: clamp(1.6rem, 3vw, 2.35rem);
     line-height: 1.12;
-    letter-spacing: -0.055em;
+    letter-spacing: 0;
   }
 
   .rich-text p {
@@ -188,7 +188,7 @@ import { education, featuredExperience } from '../data/experience';
     margin: 0;
     color: var(--color-heading);
     font-size: 1.25rem;
-    letter-spacing: -0.035em;
+    letter-spacing: 0;
   }
 
   .organization,
