@@ -20,7 +20,7 @@
     },
     featured: true,
     caseStudy: {
-      role: 'Desarrollador del proyecto',
+      role: 'Desarrollador del proyecto de inicio a fin',
       context:
         'Proyecto técnico desarrollado como challenge para demostrar manejo de Django, integración con una API externa, organización de datos y presentación de información de forma clara.',
       challenge:
@@ -66,7 +66,7 @@
     },
     featured: true,
     caseStudy: {
-      role: 'Desarrollador del proyecto',
+      role: 'Desarrollador del proyecto de inicio a fin',
       context:
         'Challenge técnico enfocado en construir un catálogo navegable, con datos organizados, filtros y una propuesta visual propia.',
       challenge:
@@ -111,7 +111,7 @@
     },
     featured: true,
     caseStudy: {
-      role: 'Desarrollador del proyecto',
+      role: 'Desarrollador del proyecto de inicio a fin',
       context:
         'Challenge técnico orientado a construir una aplicación web funcional con Django, flujos de gestión y navegación consistente.',
       challenge:

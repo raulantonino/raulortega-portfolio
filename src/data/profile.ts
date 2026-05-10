@@ -2,20 +2,20 @@
   displayName: 'Raúl Ortega',
   formalName: 'Raúl Ortega Huenuil',
   fullName: 'Raúl Antonino Ortega Huenuil',
-  role: 'Desarrollador Full Stack Trainee e Ingeniero Civil Industrial',
+  role: 'Desarrollador Full Stack Trainee | Ingeniero Civil Industrial',
   location: 'Concepción, Chile',
-  availability: 'Disponible para roles trainee/junior',
+  availability: 'Busco roles trainee/junior en desarrollo web, backend o datos',
   email: 'r.ortegahuenuil@gmail.com',
   image: '/images/profile.jpg',
   imageWebp: '/images/profile.webp',
   headline:
-    'Desarrollo aplicaciones web combinando criterio técnico, mirada analítica y cuidado visual.',
+    'Construyo aplicaciones web con Python y Django, apoyándome en criterio de ingeniería, datos y procesos.',
   summary:
-    'Ingeniero Civil Industrial orientado al desarrollo web con Python, Django y SQL. Me interesa construir soluciones claras, mantenibles y pensadas para el uso real.',
+    'Desarrollador Full Stack Trainee con base en Ingeniería Civil Industrial. Busco aportar en desarrollo web, backend o soluciones híbridas entre tecnología, datos y negocio.',
   keyFacts: [
     'Python · Django · SQL',
+    'Backend web · datos · procesos',
     'Git · GitHub · PostgreSQL',
-    'Ingeniería · datos · procesos',
   ],
   links: {
     github: 'https://github.com/raulantonino',
