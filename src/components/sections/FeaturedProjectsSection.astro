@@ -6,14 +6,14 @@ const projects = featuredProjects.slice(0, 3);
 
 <section id="proyectos" class="projects-section">
   <div class="container section-header">
-    <p class="eyebrow">PROYECTOS DESTACADOS</p>
-    <h2 class="section-title">Proyectos presentados como casos de estudio.</h2>
+    <p class="eyebrow">Proyectos destacados</p>
+    <h2 class="section-title">Proyectos</h2>
   </div>
 
   <div class="container projects-list">
     {projects.map((project, index) => (
       <article class="project-feature">
-        <div class="project-index" aria-hidden="true">0{index + 1}</div>
+        <span aria-hidden="true" style="position: absolute; top: 1.25rem; left: 1.5rem; font-size: 4.5rem; font-weight: 800; line-height: 1; color: rgba(15, 23, 42, 0.06); pointer-events: none;">0{index + 1}</span>
 
         <div class="project-content">
           <p class="project-type">{project.type}</p>
@@ -73,17 +73,6 @@ const projects = featuredProjects.slice(0, 3);
     border-radius: var(--radius-xl);
     background: var(--color-surface);
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.045);
-  }
-
-  .project-index {
-    position: absolute;
-    top: 1.25rem;
-    left: 1.5rem;
-    color: rgba(15, 23, 42, 0.06);
-    font-size: 4.5rem;
-    font-weight: 800;
-    line-height: 1;
-    pointer-events: none;
   }
 
   .project-content {
