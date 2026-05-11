@@ -43,13 +43,13 @@ export const featuredProjects: Project[] = [
     name: 'Pokeparty',
     type: 'Aplicación web con integración de API externa',
     summary:
-      'Aplicación Django para construir una party Pokémon usando datos reales desde PokeAPI.',
+      'Aplicación Django para armar una party Pokémon con datos reales desde PokeAPI. El foco estuvo en controlar el flujo de estado, definir reglas de negocio propias y que la interfaz reflejara correctamente lo que ocurría en el backend.',
     seoDescription:
       'Caso de estudio de Pokeparty, aplicación Django con consumo de PokeAPI, transformación de datos y demo desplegada.',
     problem:
-      'El desafío consistía en consumir una API externa, transformar datos y presentar una experiencia clara para comparar y construir equipos.',
+      'El desafío era consumir una API externa y construir encima una lógica de negocio propia: captura por tipo, límite de party, promoción desde box, y cálculo del equipo óptimo. Cada acción debía tener un resultado predecible y controlado, sin que el sistema tomara decisiones por su cuenta.',
     solution:
-      'Se desarrolló una aplicación web con foco en backend Django, consumo de datos externos, presentación visual cuidada y documentación técnica.',
+      'Se diseñaron reglas explícitas para cada transición de estado — captura, promoción, liberación, optimización — separando responsabilidades entre modelos, servicios y vistas. El algoritmo de equipo óptimo aplica 5 criterios en orden definido, no por heurística.',
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     repoUrl: 'https://github.com/raulantonino/pokeparty',
     demoUrl: 'https://pokeparty-keqn.onrender.com',
@@ -99,10 +99,10 @@ export const featuredProjects: Project[] = [
         'Documentación del proyecto y publicación de una demo estable.',
       ],
       technicalHighlights: [
-        'Integración con una API externa real.',
-        'Lógica de Party, PC Box, liberación y autopromoción.',
-        'Cálculo de total_power y mejor equipo posible.',
-        'Separación entre modelos, servicios y vistas.',
+        'Lógica de estado explícita: Party, Box, liberación y promoción con reglas propias.',
+        'Algoritmo de optimización con 5 criterios de prioridad definidos.',
+        'Separación entre modelos, servicios y vistas para mantener control del flujo.',
+        'Integración con PokeAPI con transformación y persistencia local de datos.',
       ],
       decisions: [
         'Usar Django como base para organizar vistas, lógica y templates.',
@@ -127,13 +127,13 @@ export const featuredProjects: Project[] = [
     name: 'Mystale Catalog Challenge',
     type: 'Catálogo web con Django',
     summary:
-      'Catálogo de criaturas con filtros, ordenamiento, clasificación por amenaza y estética retro/editorial.',
+      'Catálogo Django de criaturas energéticas con filtros, ordenamiento y clasificación por amenaza. El foco estuvo en diseñar bien el modelo de datos desde el inicio para que el resto del sistema funcionara por consecuencia.',
     seoDescription:
       'Caso de estudio de Mystale Catalog, catálogo Django con filtros, ordenamiento y clasificación de entidades.',
     problem:
-      'El proyecto requería organizar entidades, filtros y jerarquías visuales de forma clara y navegable.',
+      'Construir un catálogo navegable con jerarquía clara requería tomar decisiones de modelo antes de escribir una sola vista. El riesgo era agregar lógica de clasificación como parche en vez de como parte del diseño.',
     solution:
-      'Se creó una aplicación Django con estructura ordenada, datos semilla, filtros por tipo/nivel y una interfaz visual diferenciada.',
+      'Se definió threat_level como un valor derivado automáticamente desde las stats de cada criatura, no como campo manual. Esa decisión de modelo hizo que filtros, ordenamiento y presentación funcionaran de forma consistente sin lógica adicional.',
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'SQLite', 'Git'],
     repoUrl: 'https://github.com/raulantonino/mystale-catalog-challenge',
     demoUrl: '',
@@ -184,10 +184,10 @@ export const featuredProjects: Project[] = [
         'Organización del repositorio para facilitar revisión técnica.',
       ],
       technicalHighlights: [
-        'CBV para flujos principales de catálogo y CRUD.',
-        'threat_level derivado automáticamente desde stats.',
-        'Filtros por elemento y nivel de amenaza.',
-        'Seed de 40 criaturas y tests básicos.',
+        'threat_level derivado automáticamente desde stats, no ingresado manualmente.',
+        'CBV para todos los flujos principales de catálogo y CRUD.',
+        'Filtros por elemento y nivel de amenaza sobre el mismo modelo base.',
+        'Seed de 40 criaturas para validar filtros, orden y presentación real.',
       ],
       decisions: [
         'Clasificar entidades por nivel de amenaza para facilitar lectura y jerarquía.',
@@ -211,13 +211,13 @@ export const featuredProjects: Project[] = [
     name: 'PokeProfe Oak',
     type: 'Aplicación web Django',
     summary:
-      'Proyecto web de gestión inspirado en el universo Pokémon, desarrollado como challenge técnico con Django.',
+      'Aplicación Django de reservas construida sobre un challenge técnico abierto. El spec no era exhaustivo, así que el trabajo incluyó imaginar el caso de uso real y completar lo que era necesario para que el flujo se sintiera terminado.',
     seoDescription:
       'Caso de estudio de PokeProfe Oak, aplicación Django con flujos CRUD, autenticación y navegación protegida.',
     problem:
-      'El desafío buscaba implementar flujos funcionales, vistas protegidas y una experiencia de uso consistente.',
+      'El challenge definía el qué pero no el cómo ni los casos borde. Había que decidir qué pasaba con reservas simultáneas, cómo manejar disponibilidad dinámica y hasta dónde llegar con las funcionalidades para que el sistema tuviera sentido real.',
     solution:
-      'Se trabajó una aplicación Django con flujos CRUD, autenticación, navegación clara y mejoras funcionales sobre el alcance base.',
+      'Se implementó un flujo de reserva por pasos con validaciones de servidor, una reserva activa por usuario via OneToOneField, y protección transaccional con transaction.atomic() para evitar inconsistencias en confirmaciones concurrentes.',
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'Bootstrap', 'Git'],
     repoUrl: 'https://github.com/raulantonino/oak-lab-challenge',
     demoUrl: '',
@@ -265,10 +265,10 @@ export const featuredProjects: Project[] = [
         'Pulido de interfaz para mantener consistencia en la experiencia.',
       ],
       technicalHighlights: [
-        'OneToOneField para limitar una reserva activa por usuario.',
-        'Cálculo dinámico de cupos disponibles.',
-        'Uso de select_related para optimizar consultas.',
-        'Uso de transaction.atomic() y select_for_update() en confirmación.',
+        'OneToOneField para garantizar una sola reserva activa por usuario.',
+        'transaction.atomic() y select_for_update() en confirmación de reserva.',
+        'Disponibilidad dinámica de cupos calculada en cada request.',
+        'Funcionalidades extras definidas por criterio propio, no por el spec.',
       ],
       decisions: [
         'Mantener una navegación clara entre las secciones principales.',
