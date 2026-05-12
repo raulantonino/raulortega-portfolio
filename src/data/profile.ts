@@ -19,7 +19,7 @@
   ],
   links: {
     github: 'https://github.com/raulantonino',
-    linkedin: 'https://www.linkedin.com/in/raul-ortegahuenuil/',
+    linkedin: 'https://www.linkedin.com/in/ra%C3%BAl-ortegahuenuil/',
     email: 'mailto:r.ortegahuenuil@gmail.com',
     cv: '/cv/raul-ortega-cv.pdf',
   },
