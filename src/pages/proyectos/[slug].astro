@@ -88,8 +88,8 @@ const jsonLd = [
             <p class="case-objective"><strong>Objetivo:</strong> {project.caseStudy.objective}</p>
 
             <div class="case-links">
-              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
-              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+              {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver demo de ${project.name}`}>Ver demo</a>}
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver repositorio GitHub de ${project.name}`}>Ver GitHub</a>
               <a href="/proyectos">Volver a proyectos</a>
             </div>
 

@@ -13,9 +13,9 @@ import { profile } from '../../data/profile';
       <p class="hero-headline">{profile.headline}</p>
 
       <div class="button-row hero-actions">
-        <a class="button button--primary" href={profile.links.cv} target="_blank" rel="noopener noreferrer">Descargar CV</a>
-        <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="button button--primary" href={profile.links.cv} target="_blank" rel="noopener noreferrer" aria-label={`Descargar CV de ${profile.displayName} en PDF`}>Descargar CV</a>
+        <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`Abrir LinkedIn de ${profile.displayName}`}>LinkedIn</a>
+        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer" aria-label={`Abrir GitHub de ${profile.displayName}`}>GitHub</a>
       </div>
     </div>
 

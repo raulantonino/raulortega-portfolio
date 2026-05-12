@@ -17,9 +17,9 @@ import { profile } from '../../data/profile';
       </p>
 
       <div class="button-row">
-        <a class="button button--primary" href={profile.links.email}>Enviar correo</a>
-        <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="button button--primary" href={profile.links.email} aria-label={`Enviar correo a ${profile.displayName}`}>Enviar correo</a>
+        <a class="button button--secondary" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`Abrir LinkedIn de ${profile.displayName}`}>LinkedIn</a>
+        <a class="button button--secondary" href={profile.links.github} target="_blank" rel="noopener noreferrer" aria-label={`Abrir GitHub de ${profile.displayName}`}>GitHub</a>
       </div>
     </div>
   </div>
