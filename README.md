@@ -35,7 +35,11 @@ de auditar.
 .
 |-- docs/
 |   |-- deploy_security.md
+|   |-- final_qa_deploy_review.md
+|   |-- full_improvement_summary.md
 |   |-- project_decisions.md
+|   |-- step_2_improvements.md
+|   |-- step_3_project_case_studies.md
 |   `-- visual_direction.md
 |-- public/
 |   |-- _headers
@@ -73,6 +77,7 @@ Las paginas se encuentran en `src/pages/` y los componentes reutilizables en
 ```sh
 npm install
 npm run dev
+npm run check
 npm run build
 npm run preview
 npm run deploy
@@ -113,6 +118,7 @@ El checklist de validacion posterior al deploy esta documentado en
 Antes de publicar cambios:
 
 ```sh
+npm run check
 npm run build
 ```
 
