@@ -10,7 +10,7 @@ de seguir con mejoras de contenido, SEO o diseno.
 - El deploy esta preparado para Cloudflare Workers/Assets mediante `wrangler.jsonc`.
 - Las rutas del portfolio se prerenderizan como archivos estaticos.
 - `public/_headers` se copia al build como `dist/client/_headers`.
-- Durante `npm run build`, Astro/Cloudflare debe mostrar `Parsed 1 valid header rule`.
+- Durante `npm run build`, Astro/Cloudflare debe mostrar `Parsed 3 valid header rules`.
 
 Si en el futuro se agregan rutas SSR reales, formularios, analytics, fuentes externas,
 imagenes remotas o embeds, hay que revisar de nuevo la Content Security Policy.

@@ -35,6 +35,7 @@ de auditar.
 .
 |-- docs/
 |   |-- deploy_security.md
+|   |-- final_qa_deploy_review.md
 |   |-- project_decisions.md
 |   `-- visual_direction.md
 |-- public/
