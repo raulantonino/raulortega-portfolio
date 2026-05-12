@@ -1,17 +1,60 @@
-﻿export const featuredProjects = [
+export type Project = {
+  slug: string;
+  name: string;
+  type: string;
+  summary: string;
+  seoDescription: string;
+  problem: string;
+  solution: string;
+  technologies: string[];
+  repoUrl: string;
+  demoUrl: string;
+  demoNote?: string;
+  images: {
+    preview: string;
+    previewWebp: string;
+    case: string;
+    caseWebp: string;
+  };
+  featured: boolean;
+  caseStudy: {
+    role: string;
+    challengeType: string;
+    objective: string;
+    ownership: string;
+    context: string;
+    challenge: string;
+    technicalChallenge: string;
+    approach: string;
+    result: string;
+    requirements: string[];
+    metrics: string[];
+    scope: string[];
+    technicalHighlights: string[];
+    decisions: string[];
+    learnings: string[];
+    nextSteps: string[];
+  };
+};
+
+export const featuredProjects: Project[] = [
   {
     slug: 'pokeparty',
     name: 'Pokeparty',
     type: 'Aplicación web con integración de API externa',
     summary:
-      'Aplicación para construir y optimizar una party Pokémon usando datos reales desde PokeAPI.',
+      'Aplicación Django para armar una party Pokémon con datos reales desde PokeAPI. El foco estuvo en controlar el flujo de estado, definir reglas de negocio propias y que la interfaz reflejara correctamente lo que ocurría en el backend.',
+    seoDescription:
+      'Caso de estudio de Pokeparty, aplicación Django con consumo de PokeAPI, transformación de datos y demo desplegada.',
     problem:
-      'El desafío consistía en consumir una API externa, transformar datos y presentar una experiencia clara para comparar y construir equipos.',
+      'El desafío era consumir una API externa y construir encima una lógica de negocio propia: captura por tipo, límite de party, promoción desde box, y cálculo del equipo óptimo. Cada acción debía tener un resultado predecible y controlado, sin que el sistema tomara decisiones por su cuenta.',
     solution:
-      'Se desarrolló una aplicación web con foco en estructura backend, consumo de datos, presentación visual cuidada y documentación técnica.',
+      'Se diseñaron reglas explícitas para cada transición de estado — captura, promoción, liberación, optimización — separando responsabilidades entre modelos, servicios y vistas. El algoritmo de equipo óptimo aplica 5 criterios en orden definido, no por heurística.',
     technologies: ['Python', 'Django', 'PokeAPI', 'HTML', 'CSS', 'JavaScript', 'Git', 'GitHub'],
     repoUrl: 'https://github.com/raulantonino/pokeparty',
     demoUrl: 'https://pokeparty-keqn.onrender.com',
+    demoNote:
+      'Demo estable desplegada en Render. El primer acceso puede tardar por cold start del servicio gratuito.',
     images: {
       preview: '/images/projects/pokeparty-preview.jpg',
       previewWebp: '/images/projects/pokeparty-preview.webp',
@@ -21,12 +64,46 @@
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto de inicio a fin',
+      challengeType: 'Challenge técnico individual',
+      objective:
+        'Construir una aplicación web capaz de consultar PokeAPI, procesar información relevante y presentarla en una interfaz útil para armar una party Pokémon.',
+      ownership:
+        'Desarrollé la solución completa: estructura Django, integración con API externa, transformación de datos, templates, estilos, documentación y deploy.',
       context:
-        'Proyecto técnico desarrollado como challenge para demostrar manejo de Django, integración con una API externa, organización de datos y presentación de información de forma clara.',
+        'Proyecto técnico desarrollado como challenge Django para capturar Pokémon random por tipo usando PokeAPI y administrar una party con reglas de negocio propias.',
       challenge:
-        'El principal desafío fue transformar datos externos en una experiencia útil para el usuario, manteniendo una estructura ordenada y una interfaz fácil de recorrer.',
+        'El desafío era capturar Pokémon por tipo, guardarlos localmente, administrar una Party de máximo 6, enviar excedentes a la PC Box, ordenar por stats y calcular el mejor equipo posible.',
+      technicalChallenge:
+        'Lo más difícil fue estabilizar la lógica de negocio de Party, Box, liberación, autopromoción y optimización sin romper restricciones del modelo, además de separar bien responsabilidades entre vistas, servicios y modelos.',
       approach:
-        'La solución se trabajó separando responsabilidades, cuidando el flujo de datos desde la API externa hasta la presentación visual, y documentando decisiones técnicas relevantes para que el proyecto fuera entendible como pieza de portafolio.',
+        'La solución se trabajó separando responsabilidades entre modelos, servicios y vistas, cuidando el flujo desde PokeAPI hasta la persistencia local y la presentación del equipo optimizado.',
+      result:
+        'La aplicación quedó disponible como demo funcional y como repositorio público, mostrando consumo de API externa, flujo de datos y presentación visual del resultado.',
+      requirements: [
+        'Capturar Pokémon random por tipo usando PokeAPI.',
+        'Guardar Pokémon localmente y administrar una Party de máximo 6.',
+        'Enviar excedentes a la PC Box y permitir liberación/autopromoción.',
+        'Ordenar por stats y calcular el mejor equipo posible.',
+      ],
+      metrics: [
+        '1 app principal',
+        '2 modelos principales',
+        'Party máxima de 6 Pokémon',
+        'total_power calculado con 6 stats',
+        'Algoritmo de optimización con 5 prioridades',
+      ],
+      scope: [
+        'Configuración y estructura base del proyecto Django.',
+        'Consumo y procesamiento de datos desde PokeAPI.',
+        'Construcción de templates, estilos y navegación principal.',
+        'Documentación del proyecto y publicación de una demo estable.',
+      ],
+      technicalHighlights: [
+        'Lógica de estado explícita: Party, Box, liberación y promoción con reglas propias.',
+        'Algoritmo de optimización con 5 criterios de prioridad definidos.',
+        'Separación entre modelos, servicios y vistas para mantener control del flujo.',
+        'Integración con PokeAPI con transformación y persistencia local de datos.',
+      ],
       decisions: [
         'Usar Django como base para organizar vistas, lógica y templates.',
         'Encapsular la integración con la API externa para evitar mezclar llamadas directas con la presentación.',
@@ -50,11 +127,13 @@
     name: 'Mystale Catalog Challenge',
     type: 'Catálogo web con Django',
     summary:
-      'Catálogo de criaturas con filtros, ordenamiento, clasificación por amenaza y estética retro/editorial.',
+      'Catálogo Django de criaturas energéticas con filtros, ordenamiento y clasificación por amenaza. El foco estuvo en diseñar bien el modelo de datos desde el inicio para que el resto del sistema funcionara por consecuencia.',
+    seoDescription:
+      'Caso de estudio de Mystale Catalog, catálogo Django con filtros, ordenamiento y clasificación de entidades.',
     problem:
-      'El proyecto requería organizar entidades, filtros y jerarquías visuales de forma clara y navegable.',
+      'Construir un catálogo navegable con jerarquía clara requería tomar decisiones de modelo antes de escribir una sola vista. El riesgo era agregar lógica de clasificación como parche en vez de como parte del diseño.',
     solution:
-      'Se creó una aplicación Django con estructura ordenada, datos semilla, filtros por tipo/nivel y una interfaz visual diferenciada.',
+      'Se definió threat_level como un valor derivado automáticamente desde las stats de cada criatura, no como campo manual. Esa decisión de modelo hizo que filtros, ordenamiento y presentación funcionaran de forma consistente sin lógica adicional.',
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'SQLite', 'Git'],
     repoUrl: 'https://github.com/raulantonino/mystale-catalog-challenge',
     demoUrl: '',
@@ -67,12 +146,49 @@
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto de inicio a fin',
+      challengeType: 'Challenge técnico individual',
+      objective:
+        'Construir un catálogo web navegable que permitiera revisar criaturas, aplicar filtros y entender rápidamente su clasificación.',
+      ownership:
+        'Implementé la aplicación completa: estructura Django, datos iniciales, filtros, ordenamiento, templates, estilos y documentación del repositorio.',
       context:
-        'Challenge técnico enfocado en construir un catálogo navegable, con datos organizados, filtros y una propuesta visual propia.',
+        'Challenge técnico enfocado en construir un sistema web interno en Django para catalogar criaturas energéticas con templates, SQLite, formulario web, catálogo navegable y migraciones coherentes.',
       challenge:
-        'El desafío fue equilibrar estructura backend, claridad de filtros y una estética visual diferenciada sin perder legibilidad.',
+        'El desafío base pedía catálogo, formulario, filtro por elemento e historial de migraciones; luego lo extendí con detalle, edición, eliminación, filtro por amenaza, seed y tests básicos.',
+      technicalChallenge:
+        'Lo más difícil fue diseñar un modelo donde threat_level no fuera un dato manual, sino derivado automáticamente de las stats, manteniendo al mismo tiempo filtros, ordenamiento y migraciones con una evolución creíble.',
       approach:
-        'Se trabajó una aplicación Django con modelos simples, datos iniciales, ordenamiento, filtros y una interfaz inspirada en una estética retro/editorial.',
+        'Se trabajó una aplicación Django con CBV, modelo principal consistente, datos semilla, filtros por elemento y amenaza, ordenamiento y una interfaz retro/editorial sin perder legibilidad.',
+      result:
+        'El resultado es un catálogo funcional que permite explorar entidades con una jerarquía clara y una presentación visual distinta al aspecto estándar de un challenge.',
+      requirements: [
+        'Catalogar criaturas energéticas con templates Django y SQLite.',
+        'Agregar formulario web, catálogo navegable y filtro por elemento.',
+        'Mantener un historial de migraciones coherente.',
+        'Extender el alcance con detalle, edición, eliminación, seed, tests y filtro por amenaza.',
+      ],
+      metrics: [
+        '1 entidad principal',
+        '5 vistas principales CRUD con CBV',
+        '2 filtros',
+        '8 elementos',
+        '5 niveles de amenaza',
+        '6 stats para calcular threat_level',
+        '2 migraciones reales',
+        'Seed de 40 criaturas',
+      ],
+      scope: [
+        'Definición de entidades, atributos y criterios de clasificación.',
+        'Implementación de filtros y ordenamiento para exploración del catálogo.',
+        'Construcción de templates y estilos con una dirección visual propia.',
+        'Organización del repositorio para facilitar revisión técnica.',
+      ],
+      technicalHighlights: [
+        'threat_level derivado automáticamente desde stats, no ingresado manualmente.',
+        'CBV para todos los flujos principales de catálogo y CRUD.',
+        'Filtros por elemento y nivel de amenaza sobre el mismo modelo base.',
+        'Seed de 40 criaturas para validar filtros, orden y presentación real.',
+      ],
       decisions: [
         'Clasificar entidades por nivel de amenaza para facilitar lectura y jerarquía.',
         'Ordenar los resultados por amenaza y nombre para mantener una navegación predecible.',
@@ -95,11 +211,13 @@
     name: 'PokeProfe Oak',
     type: 'Aplicación web Django',
     summary:
-      'Proyecto web de gestión inspirado en el universo Pokémon, desarrollado como challenge técnico con Django.',
+      'Aplicación Django de reservas construida sobre un challenge técnico abierto. El spec no era exhaustivo, así que el trabajo incluyó imaginar el caso de uso real y completar lo que era necesario para que el flujo se sintiera terminado.',
+    seoDescription:
+      'Caso de estudio de PokeProfe Oak, aplicación Django con flujos CRUD, autenticación y navegación protegida.',
     problem:
-      'El desafío buscaba implementar flujos funcionales, vistas protegidas y una experiencia de uso consistente.',
+      'El challenge definía el qué pero no el cómo ni los casos borde. Había que decidir qué pasaba con reservas simultáneas, cómo manejar disponibilidad dinámica y hasta dónde llegar con las funcionalidades para que el sistema tuviera sentido real.',
     solution:
-      'Se trabajó una aplicación Django con flujos CRUD, autenticación, navegación clara y mejoras funcionales sobre el alcance base.',
+      'Se implementó un flujo de reserva por pasos con validaciones de servidor, una reserva activa por usuario via OneToOneField, y protección transaccional con transaction.atomic() para evitar inconsistencias en confirmaciones concurrentes.',
     technologies: ['Python', 'Django', 'HTML', 'CSS', 'Bootstrap', 'Git'],
     repoUrl: 'https://github.com/raulantonino/oak-lab-challenge',
     demoUrl: '',
@@ -112,12 +230,46 @@
     featured: true,
     caseStudy: {
       role: 'Desarrollador del proyecto de inicio a fin',
+      challengeType: 'Challenge técnico individual',
+      objective:
+        'Resolver un challenge de aplicación web con Django, implementando flujos de gestión, navegación consistente y funcionalidades útiles para el usuario.',
+      ownership:
+        'Desarrollé el proyecto completo: rutas, vistas, templates, flujos CRUD, autenticación, estilos y mejoras funcionales sobre el alcance base.',
       context:
-        'Challenge técnico orientado a construir una aplicación web funcional con Django, flujos de gestión y navegación consistente.',
+        'Challenge técnico orientado a construir un sistema de reservas en Django para que un entrenador pudiera registrarse, iniciar sesión, elegir criatura inicial, seleccionar horario, confirmar reserva y revisarla después.',
       challenge:
-        'El principal desafío fue implementar flujos completos y mantener una experiencia clara, incluyendo mejoras que aportaran valor más allá del alcance mínimo.',
+        'El sistema debía permitir reservas desde el lado del usuario y administración de criaturas, horarios y reservas desde el admin para el Profesor Oak.',
+      technicalChallenge:
+        'Lo más difícil fue hacer robusto el flujo de reservas del lado servidor: una reserva activa por usuario, disponibilidad dinámica, validaciones correctas, wizard con sesión y confirmación protegida frente a inconsistencias.',
       approach:
-        'Se desarrollaron vistas, rutas, templates y flujos de interacción, priorizando funcionalidad, estructura y una experiencia entendible para el usuario.',
+        'Se desarrolló un flujo de reserva por pasos con validaciones de servidor, cálculo dinámico de cupos, consultas optimizadas y protección transaccional para evitar inconsistencias.',
+      result:
+        'El proyecto demuestra manejo de flujos web en Django, organización de vistas/templates y criterio para completar funcionalidades más allá del mínimo requerido.',
+      requirements: [
+        'Registro e inicio de sesión de entrenadores.',
+        'Selección de criatura inicial y horario disponible.',
+        'Confirmación y visualización posterior de la reserva.',
+        'Administración de criaturas, horarios y reservas desde Django admin.',
+      ],
+      metrics: [
+        '1 app principal',
+        '3 modelos principales',
+        '1 reserva activa por usuario',
+        'Flujo de reserva de 3 pasos principales',
+        'Mejora extra de cancelación de reserva',
+      ],
+      scope: [
+        'Definición de rutas, vistas y templates para los flujos principales.',
+        'Implementación de operaciones CRUD y navegación entre secciones.',
+        'Trabajo con autenticación y vistas protegidas según el flujo del challenge.',
+        'Pulido de interfaz para mantener consistencia en la experiencia.',
+      ],
+      technicalHighlights: [
+        'OneToOneField para garantizar una sola reserva activa por usuario.',
+        'transaction.atomic() y select_for_update() en confirmación de reserva.',
+        'Disponibilidad dinámica de cupos calculada en cada request.',
+        'Funcionalidades extras definidas por criterio propio, no por el spec.',
+      ],
       decisions: [
         'Mantener una navegación clara entre las secciones principales.',
         'Agregar acciones útiles para completar mejor el flujo de gestión.',

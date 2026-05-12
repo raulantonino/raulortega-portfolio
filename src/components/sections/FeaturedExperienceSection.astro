@@ -6,7 +6,7 @@ import { featuredExperience } from '../../data/experience';
   <div class="container">
     <div class="section-heading">
       <p class="eyebrow">Experiencia</p>
-      <h2>Experiencia relevante</h2>
+      <h2>Experiencia</h2>
     </div>
 
     <div class="experience-list">
@@ -20,7 +20,7 @@ import { featuredExperience } from '../../data/experience';
             <p class="summary">{item.summary}</p>
 
             <ul>
-              {item.highlights.map((highlight) => <li>{highlight}</li>)}
+              {item.highlights.slice(0, 3).map((highlight) => <li>{highlight}</li>)}
             </ul>
 
             <div class="tag-list">
@@ -36,6 +36,7 @@ import { featuredExperience } from '../../data/experience';
 <style>
   .cv-section {
     padding: 5rem 0;
+    background: #ffffff;
     border-top: 1px solid var(--color-border);
   }
 
@@ -52,19 +53,22 @@ import { featuredExperience } from '../../data/experience';
   }
 
   .experience-list {
-    display: grid;
-    gap: 1rem;
+    display: block;
   }
 
   .experience-item {
     display: grid;
     grid-template-columns: 11rem minmax(0, 1fr);
     gap: 1.5rem;
-    padding: 1.4rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface);
-    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+    margin-bottom: 2rem;
+    padding: 0 0 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .experience-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 
   .experience-date {

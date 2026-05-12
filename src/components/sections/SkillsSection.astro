@@ -1,12 +1,14 @@
 ---
 import { skillGroups } from '../../data/skills';
+
+const featuredSkills = new Set(['Python', 'Django', 'SQL', 'Git']);
 ---
 
 <section id="habilidades" class="skills-section">
   <div class="container skills-grid">
     <div class="skills-heading">
       <p class="eyebrow">Habilidades</p>
-      <h2>Tecnologías y capacidades principales.</h2>
+      <h2>Habilidades</h2>
       <p>
         Mi perfil combina desarrollo web, bases de datos, herramientas de trabajo
         colaborativo y una base analítica vinculada a ingeniería y procesos.
@@ -19,7 +21,11 @@ import { skillGroups } from '../../data/skills';
           <h3>{group.title}</h3>
 
           <ul>
-            {group.skills.map((skill) => <li>{skill}</li>)}
+            {group.skills.map((skill) => (
+              <li class={featuredSkills.has(skill) ? 'skill-chip skill-chip--featured' : 'skill-chip'}>
+                {skill}
+              </li>
+            ))}
           </ul>
         </article>
       ))}
@@ -31,7 +37,7 @@ import { skillGroups } from '../../data/skills';
   .skills-section {
     padding: 5rem 0;
     border-top: 1px solid var(--color-border);
-    background: rgba(255, 255, 255, 0.36);
+    background: var(--color-bg);
   }
 
   .skills-grid {
@@ -56,50 +62,48 @@ import { skillGroups } from '../../data/skills';
 
   .skills-list {
     display: grid;
-    gap: 0.75rem;
+    gap: 1.5rem;
   }
 
   .skill-group {
-    display: grid;
-    grid-template-columns: 11rem 1fr;
-    gap: 1rem;
-    padding: 1rem 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .skill-group:last-child {
-    border-bottom: 1px solid var(--color-border);
+    display: block;
   }
 
   .skill-group h3 {
-    margin: 0;
-    color: var(--color-heading);
-    font-size: 1rem;
-    letter-spacing: 0;
+    margin: 0 0 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .skill-group ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.4rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .skill-group li {
-    padding: 0.35rem 0.5rem;
+  .skill-chip {
+    display: inline-flex;
+    padding: 0.25rem 0.6rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.76);
+    background: var(--color-bg-soft);
     color: var(--color-heading);
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     font-weight: 700;
   }
 
+  .skill-chip--featured {
+    border-color: var(--color-border-blue);
+  }
+
   @media (max-width: 900px) {
-    .skills-grid,
-    .skill-group {
+    .skills-grid {
       grid-template-columns: 1fr;
     }
   }

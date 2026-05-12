@@ -7,51 +7,27 @@ const projects = featuredProjects.slice(0, 3);
 <section id="proyectos" class="projects-section">
   <div class="container section-header">
     <p class="eyebrow">Proyectos destacados</p>
-    <h2>Proyectos presentados como mini casos de estudio.</h2>
-    <p>
-      Cada proyecto busca mostrar no solo tecnologías, sino también problema,
-      solución, decisiones y resultado visible.
-    </p>
+    <h2 class="section-title">Proyectos</h2>
   </div>
 
   <div class="container projects-list">
     {projects.map((project, index) => (
       <article class="project-feature">
-        <div class="project-index">0{index + 1}</div>
-
-        <div class="project-media">
-          <picture>
-            <source srcset={project.images.previewWebp} type="image/webp" />
-            <img
-              src={project.images.preview}
-              alt={`Captura de ${project.name}`}
-              width="960"
-              height="1200"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        </div>
+        <span aria-hidden="true" style="position: absolute; top: 1.25rem; left: 1.5rem; font-size: 4.5rem; font-weight: 800; line-height: 1; color: rgba(15, 23, 42, 0.06); pointer-events: none;">0{index + 1}</span>
 
         <div class="project-content">
           <p class="project-type">{project.type}</p>
           <h3>{project.name}</h3>
           <p class="summary">{project.summary}</p>
 
-          <div class="project-points">
-            <div>
-              <strong>Problema</strong>
-              <p>{project.problem}</p>
-            </div>
-
-            <div>
-              <strong>Solución</strong>
-              <p>{project.solution}</p>
-            </div>
+          <div class="project-evidence">
+            <ul>
+              {project.caseStudy.technicalHighlights.slice(0, 2).map((highlight) => <li>{highlight}</li>)}
+            </ul>
           </div>
 
           <ul class="tech-list">
-            {project.technologies.slice(0, 6).map((tech) => <li>{tech}</li>)}
+            {project.technologies.slice(0, 5).map((tech) => <li>{tech}</li>)}
           </ul>
 
           <div class="project-links">
@@ -72,30 +48,13 @@ const projects = featuredProjects.slice(0, 3);
 <style>
   .projects-section {
     padding: 5rem 0;
+    background: #eef3f7;
     border-top: 1px solid var(--color-border);
   }
 
   .section-header {
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-    gap: clamp(1.5rem, 4vw, 3.5rem);
-    align-items: end;
     margin-bottom: 1.5rem;
-  }
-
-  .section-header h2 {
-    margin: 0;
-    color: var(--color-heading);
-    font-size: clamp(2rem, 4vw, 3.15rem);
-    line-height: 1.06;
-    letter-spacing: 0;
-  }
-
-  .section-header p:not(.eyebrow) {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 1.04rem;
-    line-height: 1.75;
+    text-align: left;
   }
 
   .projects-list {
@@ -104,45 +63,22 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .project-feature {
+    position: relative;
     display: grid;
-    grid-template-columns: 4rem minmax(220px, 0.38fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.2rem;
-    padding: 1rem;
+    overflow: hidden;
+    padding: clamp(1rem, 3vw, 1.35rem);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     background: var(--color-surface);
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.045);
   }
 
-  .project-index {
-    color: rgba(15, 23, 42, 0.32);
-    font-size: 0.9rem;
-    font-weight: 850;
-  }
-
-  .project-media {
-    overflow: hidden;
-    min-height: 230px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface-soft);
-  }
-
-  .project-media img {
-    width: 100%;
-    height: 100%;
-    min-height: 230px;
-    object-fit: cover;
-  }
-
-  .project-media picture {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
   .project-content {
-    padding: 0.35rem 0.2rem;
+    position: relative;
+    z-index: 1;
+    padding: 0.1rem 0;
   }
 
   .project-type {
@@ -163,27 +99,20 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   .summary,
-  .project-points p {
+  .project-evidence li {
     color: var(--color-muted);
     line-height: 1.68;
   }
 
-  .project-points {
+  .project-evidence ul {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-border);
+    gap: 0.35rem;
+    margin: 0.9rem 0 0;
+    padding-left: 1.1rem;
   }
 
-  .project-points strong {
-    color: var(--color-heading);
-    font-size: 0.86rem;
-  }
-
-  .project-points p {
-    margin: 0.35rem 0 0;
+  .project-evidence li {
+    padding-left: 0.1rem;
   }
 
   .tech-list {
@@ -227,14 +156,8 @@ const projects = featuredProjects.slice(0, 3);
   }
 
   @media (max-width: 960px) {
-    .section-header,
-    .project-feature,
-    .project-points {
+    .project-feature {
       grid-template-columns: 1fr;
-    }
-
-    .project-index {
-      margin-bottom: -0.4rem;
     }
   }
 </style>
