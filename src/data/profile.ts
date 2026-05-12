@@ -20,7 +20,7 @@
   links: {
     github: 'https://github.com/raulantonino',
     linkedin: 'https://www.linkedin.com/in/ra%C3%BAl-ortegahuenuil/',
-    email: 'mailto:r.ortegahuenuil@gmail.com',
+    email: 'mailto:r.ortegahuenuil@gmail.com?subject=Contacto%20por%20portfolio%20-%20oportunidad%20trainee%2Fjunior',
     cv: '/cv/raul-ortega-cv.pdf',
   },
 };
