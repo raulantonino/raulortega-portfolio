@@ -9,11 +9,43 @@ import EducationSection from '../components/sections/EducationSection.astro';
 import SkillsSection from '../components/sections/SkillsSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 import { profile } from '../data/profile';
+
+const siteUrl = (Astro.site ?? new URL(Astro.url.origin)).toString();
+const homeUrl = new URL('/', siteUrl).toString();
+const personId = `${homeUrl}#raul-ortega`;
+const pageDescription = `${profile.formalName}, ${profile.role}. Portfolio profesional enfocado en desarrollo web con Python, Django y SQL.`;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': personId,
+    name: profile.formalName,
+    alternateName: profile.displayName,
+    jobTitle: 'Desarrollador Full Stack Trainee',
+    description: pageDescription,
+    url: homeUrl,
+    image: new URL(profile.image, siteUrl).toString(),
+    sameAs: [profile.links.linkedin, profile.links.github],
+    knowsAbout: ['Python', 'Django', 'SQL', 'PostgreSQL', 'JavaScript', 'Ingeniería Civil Industrial'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${homeUrl}#website`,
+    name: `${profile.displayName} Portfolio`,
+    url: homeUrl,
+    inLanguage: 'es-CL',
+    author: {
+      '@id': personId,
+    },
+  },
+];
 ---
 
 <BaseLayout
   title={`${profile.formalName} | Portfolio profesional`}
-  description={`${profile.formalName}, ${profile.role}. Portfolio profesional enfocado en desarrollo web con Python, Django y SQL.`}
+  description={pageDescription}
+  jsonLd={jsonLd}
 >
   <div class="page-shell">
     <Header />
