@@ -12,18 +12,17 @@ estabilidad, seguridad básica, SEO, accesibilidad, assets y documentación.
 ## Checks ejecutados
 
 ```sh
+npm run check
 npm run build
 npm audit --audit-level=moderate
-npm run astro -- check
 ```
 
 Resultados:
 
+- `npm run check`: correcto, con 0 errores, 0 warnings y 0 hints.
 - `npm run build`: correcto.
 - Cloudflare/Astro: `Parsed 3 valid header rules`.
 - `npm audit --audit-level=moderate`: `found 0 vulnerabilities`.
-- `npm run astro -- check`: no disponible sin instalar `@astrojs/check` y
-  `typescript`. No se instalaron dependencias nuevas en este cierre.
 
 ## Revisión técnica
 
@@ -104,8 +103,8 @@ Validar manualmente:
 
 ## Pendientes recomendados
 
-- Instalar y configurar `@astrojs/check` + `typescript` si se quiere un check
-  tipado formal en CI/local.
+- Mantener `npm run check` y `npm run build` como validaciones obligatorias
+  antes de cada PR o deploy.
 - Ejecutar una revisión visual con navegador en anchos aproximados de 390px,
   768px y desktop.
 - Revisar el sitio desplegado con Lighthouse o PageSpeed después de que

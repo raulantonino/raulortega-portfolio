@@ -178,17 +178,17 @@ Se ejecutó una revisión final del proyecto y se documentó en
 Checks realizados:
 
 ```sh
+npm run check
 npm run build
 npm audit --audit-level=moderate
-npm run astro -- check
 ```
 
 Resultados:
 
+- `npm run check`: correcto, con 0 errores, 0 warnings y 0 hints;
 - `npm run build`: correcto;
 - Cloudflare/Astro: `Parsed 3 valid header rules`;
-- `npm audit --audit-level=moderate`: `found 0 vulnerabilities`;
-- `astro check`: no disponible sin instalar `@astrojs/check` y `typescript`.
+- `npm audit --audit-level=moderate`: `found 0 vulnerabilities`.
 
 También se revisó:
 
@@ -217,7 +217,8 @@ El portfolio quedó como una versión profesional más sólida:
 
 Pendientes razonables para una futura iteración:
 
-- instalar y configurar `@astrojs/check` + `typescript`;
+- mantener `npm run check`, `npm run build` y `npm audit` como rutina antes de
+  PR o deploy;
 - revisar visualmente en navegador real en mobile, tablet y desktop;
 - ejecutar Lighthouse o PageSpeed sobre el sitio desplegado;
 - revisar preview social con LinkedIn Post Inspector;
@@ -237,7 +238,7 @@ git fetch origin
 git rebase origin/main
 npm run build
 npm audit --audit-level=moderate
-npm run astro -- check
+npm run check
 ```
 
 No se hizo push desde Codex durante las etapas solicitadas. Los merges y PRs se

@@ -77,6 +77,7 @@ Las paginas se encuentran en `src/pages/` y los componentes reutilizables en
 ```sh
 npm install
 npm run dev
+npm run check
 npm run build
 npm run preview
 npm run deploy
@@ -117,6 +118,7 @@ El checklist de validacion posterior al deploy esta documentado en
 Antes de publicar cambios:
 
 ```sh
+npm run check
 npm run build
 ```
 
