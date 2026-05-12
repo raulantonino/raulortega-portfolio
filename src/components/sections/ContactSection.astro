@@ -6,15 +6,16 @@ import { profile } from '../../data/profile';
   <div class="container contact-card">
     <div>
       <p class="eyebrow">Contacto</p>
-      <h2>Conversemos sobre oportunidades trainee o junior.</h2>
+      <h2>Hablemos sobre roles trainee o junior en desarrollo web.</h2>
     </div>
 
     <div class="contact-content">
       <p>
-        Me interesa integrarme a equipos donde pueda crecer técnicamente y aportar en desarrollo web,
-        backend o roles que conecten tecnología, datos y negocio. Puedes escribirme por correo,
-        revisar mi GitHub o conectar conmigo en LinkedIn.
+        Busco sumarme a equipos donde pueda aportar construyendo aplicaciones web,
+        ordenando lógica backend y entendiendo procesos o datos del negocio. Puedes
+        escribirme por correo, revisar mi GitHub o conectar conmigo en LinkedIn.
       </p>
+      <p class="contact-fit">{profile.availability}</p>
 
       <div class="button-row">
         <a class="button button--primary" href={profile.links.email} aria-label={`Enviar correo a ${profile.displayName}`}>Enviar correo</a>
@@ -56,6 +57,20 @@ import { profile } from '../../data/profile';
     color: var(--color-muted);
     font-size: 1.05rem;
     line-height: 1.75;
+  }
+
+  .contact-fit {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 1.4rem !important;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid var(--color-border-blue);
+    border-radius: var(--radius-sm);
+    color: var(--color-primary-deep) !important;
+    background: var(--color-primary-soft);
+    font-size: 0.86rem !important;
+    font-weight: 760;
+    line-height: 1.45 !important;
   }
 
   @media (max-width: 860px) {
