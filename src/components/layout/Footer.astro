@@ -11,6 +11,7 @@ import { profile } from '../../data/profile';
 
     <div class="footer-links" aria-label="Enlaces profesionales">
       <a href="/sobre-mi">Sobre mí</a>
+      <a href={profile.links.cv} target="_blank" rel="noopener noreferrer" aria-label={`Descargar CV de ${profile.displayName} en PDF`}>CV</a>
       <a href={profile.links.email} aria-label={`Enviar correo a ${profile.displayName}`}>Email</a>
       <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`Abrir LinkedIn de ${profile.displayName}`}>LinkedIn</a>
       <a href={profile.links.github} target="_blank" rel="noopener noreferrer" aria-label={`Abrir GitHub de ${profile.displayName}`}>GitHub</a>
