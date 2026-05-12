@@ -4,11 +4,38 @@ import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 import { profile } from '../../data/profile';
 import { allProjects } from '../../data/projects';
+
+const siteUrl = (Astro.site ?? new URL(Astro.url.origin)).toString();
+const projectsUrl = new URL('/proyectos/', siteUrl).toString();
+const pageDescription = `Casos de estudio de ${profile.formalName}: proyectos Django, Python y SQL desarrollados de inicio a fin con contexto, evidencia técnica y código.`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Proyectos | ${profile.displayName}`,
+  description: pageDescription,
+  url: projectsUrl,
+  inLanguage: 'es-CL',
+  author: {
+    '@type': 'Person',
+    name: profile.formalName,
+    url: new URL('/', siteUrl).toString(),
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: allProjects.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/proyectos/${project.slug}/`, siteUrl).toString(),
+      name: project.name,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title={`Proyectos | ${profile.displayName}`}
-  description={`Casos de estudio de ${profile.formalName}: proyectos Django, Python y SQL desarrollados de inicio a fin con contexto, evidencia técnica y código.`}
+  description={pageDescription}
+  jsonLd={jsonLd}
 >
   <div class="page-shell">
     <Header />
@@ -63,9 +90,9 @@ import { allProjects } from '../../data/projects';
                 </ul>
 
                 <div class="project-links">
-                  {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
-                  <a href={`/proyectos/${project.slug}`}>Ver caso</a>
-                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+                  {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver demo de ${project.name}`}>Ver demo</a>}
+                  <a href={`/proyectos/${project.slug}`} aria-label={`Ver caso de estudio de ${project.name}`}>Ver caso</a>
+                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver repositorio GitHub de ${project.name}`}>GitHub</a>
                 </div>
               </div>
             </article>

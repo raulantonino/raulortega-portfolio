@@ -31,9 +31,9 @@ const projects = featuredProjects.slice(0, 3);
           </ul>
 
           <div class="project-links">
-            {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">Ver demo</a>}
-            <a href={`/proyectos/${project.slug}`}>Ver caso</a>
-            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+            {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver demo de ${project.name}`}>Ver demo</a>}
+            <a href={`/proyectos/${project.slug}`} aria-label={`Ver caso de estudio de ${project.name}`}>Ver caso</a>
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver repositorio GitHub de ${project.name}`}>GitHub</a>
           </div>
         </div>
       </article>
