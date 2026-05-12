@@ -36,7 +36,10 @@ de auditar.
 |-- docs/
 |   |-- deploy_security.md
 |   |-- final_qa_deploy_review.md
+|   |-- full_improvement_summary.md
 |   |-- project_decisions.md
+|   |-- step_2_improvements.md
+|   |-- step_3_project_case_studies.md
 |   `-- visual_direction.md
 |-- public/
 |   |-- _headers
