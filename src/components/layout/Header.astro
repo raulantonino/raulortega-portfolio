@@ -15,9 +15,10 @@ const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsP
     </a>
 
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href={projectsHref} aria-current={projectsAriaCurrent}>Proyectos</a>
       <a href="/#experiencia">Experiencia</a>
-      <a class="desktop-only" href="/#stack">Stack</a>
+      <a href={projectsHref} aria-current={projectsAriaCurrent}>Proyectos</a>
+      <a href="/#stack">Stack</a>
+      <a href="/#formacion">Formación</a>
       <a href="/#contacto">Contacto</a>
       <a href={profile.links.cv} target="_blank" rel="noopener noreferrer" aria-label={`Descargar CV de ${profile.displayName} en PDF`}>CV</a>
     </nav>
@@ -108,10 +109,6 @@ const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsP
 
     .main-nav a {
       white-space: nowrap;
-    }
-
-    .desktop-only {
-      display: none;
     }
   }
 </style>

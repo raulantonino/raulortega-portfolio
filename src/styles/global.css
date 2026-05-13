@@ -86,6 +86,10 @@ img {
   display: block;
 }
 
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 button,
 input,
 textarea {
@@ -146,6 +150,7 @@ textarea {
   color: var(--color-heading);
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 400;
   line-height: 1.06;
   letter-spacing: 0;
 }
