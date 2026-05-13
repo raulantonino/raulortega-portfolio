@@ -2,7 +2,6 @@
 import { profile } from '../../data/profile';
 
 const currentPath = Astro.url.pathname;
-const isAboutPage = currentPath.startsWith('/sobre-mi');
 const isProjectsPage = currentPath.startsWith('/proyectos');
 const projectsHref = isProjectsPage ? '/proyectos' : '/#proyectos';
 const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsPage ? 'location' : undefined;
@@ -16,12 +15,11 @@ const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsP
     </a>
 
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="/sobre-mi" aria-current={isAboutPage ? 'page' : undefined}>Sobre mí</a>
-      <a href="/#experiencia">Experiencia</a>
       <a href={projectsHref} aria-current={projectsAriaCurrent}>Proyectos</a>
-      <a href="/#educacion">Educación</a>
-      <a href="/#habilidades">Habilidades</a>
+      <a href="/#experiencia">Experiencia</a>
+      <a class="desktop-only" href="/#stack">Stack</a>
       <a href="/#contacto">Contacto</a>
+      <a href={profile.links.cv} target="_blank" rel="noopener noreferrer" aria-label={`Descargar CV de ${profile.displayName} en PDF`}>CV</a>
     </nav>
   </div>
 </header>
@@ -44,7 +42,7 @@ const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsP
     border: 1px solid rgba(15, 23, 42, 0.085);
     border-radius: var(--radius-lg);
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.045);
+    box-shadow: var(--shadow-soft);
     backdrop-filter: blur(10px);
   }
 
@@ -58,14 +56,14 @@ const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsP
   .brand-name {
     color: var(--color-heading);
     font-size: 0.98rem;
-    font-weight: 830;
+    font-weight: 700;
     letter-spacing: 0;
   }
 
   .brand-subtitle {
     color: var(--color-muted);
     font-size: 0.74rem;
-    font-weight: 640;
+    font-weight: 500;
   }
 
   .main-nav {
@@ -110,6 +108,10 @@ const projectsAriaCurrent = currentPath === '/proyectos/' ? 'page' : isProjectsP
 
     .main-nav a {
       white-space: nowrap;
+    }
+
+    .desktop-only {
+      display: none;
     }
   }
 </style>

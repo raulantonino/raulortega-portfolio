@@ -4,11 +4,11 @@ import { skillGroups } from '../../data/skills';
 const featuredSkills = new Set(['Python', 'Django', 'SQL', 'Git']);
 ---
 
-<section id="habilidades" class="skills-section">
+<section id="stack" class="skills-section">
   <div class="container skills-grid">
     <div class="skills-heading">
-      <p class="eyebrow">Habilidades</p>
-      <h2>Habilidades</h2>
+      <p class="eyebrow">Base técnica</p>
+      <h2>Stack principal</h2>
       <p>
         Mi perfil combina desarrollo web, bases de datos, herramientas de trabajo
         colaborativo y una base analítica vinculada a ingeniería y procesos.
@@ -49,7 +49,9 @@ const featuredSkills = new Set(['Python', 'Django', 'SQL', 'Git']);
   .skills-heading h2 {
     margin: 0;
     color: var(--color-heading);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3.05rem);
+    font-weight: 400;
     line-height: 1.07;
     letter-spacing: 0;
   }
@@ -73,8 +75,8 @@ const featuredSkills = new Set(['Python', 'Django', 'SQL', 'Git']);
     margin: 0 0 0.5rem;
     color: var(--color-muted);
     font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 

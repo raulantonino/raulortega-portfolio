@@ -5,8 +5,7 @@ import { profile } from '../../data/profile';
 <section id="contacto" class="contact-section">
   <div class="container contact-card">
     <div>
-      <p class="eyebrow">Contacto</p>
-      <h2>Hablemos sobre roles trainee o junior en desarrollo web.</h2>
+      <h2>Hablemos</h2>
     </div>
 
     <div class="contact-content">
@@ -41,13 +40,15 @@ import { profile } from '../../data/profile';
     background:
       linear-gradient(135deg, rgba(47, 111, 237, 0.07), rgba(138, 169, 154, 0.07)),
       var(--color-surface);
-    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.05);
+    box-shadow: var(--shadow-lift);
   }
 
   .contact-card h2 {
     margin: 0;
     color: var(--color-heading);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3.15rem);
+    font-weight: 400;
     line-height: 1.06;
     letter-spacing: 0;
   }
@@ -69,7 +70,7 @@ import { profile } from '../../data/profile';
     color: var(--color-primary-deep) !important;
     background: var(--color-primary-soft);
     font-size: 0.86rem !important;
-    font-weight: 760;
+    font-weight: 700;
     line-height: 1.45 !important;
   }
 

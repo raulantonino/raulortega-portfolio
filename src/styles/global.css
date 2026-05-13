@@ -25,8 +25,11 @@
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.5rem;
+
+  --shadow-soft: 0 10px 26px rgba(15, 23, 42, 0.045);
+  --shadow-lift: 0 14px 34px rgba(15, 23, 42, 0.055);
 
   --container: 1120px;
 }
@@ -105,8 +108,8 @@ textarea {
   border-radius: var(--radius-sm);
   color: #ffffff;
   background: var(--color-primary-deep);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
-  font-weight: 780;
+  box-shadow: var(--shadow-lift);
+  font-weight: 700;
   transform: translateY(-150%);
   transition: transform 160ms ease;
 }
@@ -132,8 +135,8 @@ textarea {
   margin: 0 0 0.75rem;
   color: var(--color-primary-deep);
   font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -159,9 +162,7 @@ textarea {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   background: var(--color-surface);
-  box-shadow:
-    0 1px 3px rgba(15, 23, 42, 0.06),
-    0 4px 16px rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-soft);
 }
 
 .button-row {
@@ -179,7 +180,7 @@ textarea {
   padding: 0.7rem 0.95rem;
   border: 1px solid transparent;
   border-radius: var(--radius-md);
-  font-weight: 740;
+  font-weight: 700;
   line-height: 1;
   transition:
     transform 180ms ease,
@@ -196,7 +197,7 @@ textarea {
 .button--primary {
   color: #ffffff;
   background: var(--color-primary);
-  box-shadow: 0 12px 24px rgba(47, 111, 237, 0.18);
+  box-shadow: 0 10px 22px rgba(47, 111, 237, 0.16);
 }
 
 .button--primary:hover {
@@ -211,12 +212,12 @@ textarea {
 
 .button--secondary:hover {
   border-color: var(--color-border-blue);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.045);
+  box-shadow: var(--shadow-soft);
 }
 
 .text-link {
   color: var(--color-heading);
-  font-weight: 760;
+  font-weight: 700;
   border-bottom: 1px solid rgba(47, 111, 237, 0.28);
   transition:
     color 180ms ease,

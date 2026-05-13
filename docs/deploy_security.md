@@ -61,13 +61,14 @@ Antes de publicar ampliamente:
 4. Confirmar que las paginas principales siguen cargando visualmente:
 
    - `/`
-   - `/sobre-mi`
    - `/proyectos`
    - `/proyectos/pokeparty`
    - `/proyectos/mystale-catalog`
    - `/proyectos/pokeprofe-oak`
 
-5. Confirmar que el PDF del CV abre correctamente.
+5. Confirmar que la ruta retirada `/sobre-mi` redirige al inicio.
+
+6. Confirmar que el PDF del CV abre correctamente.
 
 ## Riesgos conocidos
 

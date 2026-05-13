@@ -93,11 +93,12 @@ Notas:
 ## Rutas principales
 
 - `/`
-- `/sobre-mi`
 - `/proyectos`
 - `/proyectos/pokeparty`
 - `/proyectos/mystale-catalog`
 - `/proyectos/pokeprofe-oak`
+
+La ruta histórica `/sobre-mi` redirige al inicio.
 
 ## Seguridad y deploy
 
