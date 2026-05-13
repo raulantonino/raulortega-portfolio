@@ -2,11 +2,13 @@
 import { education } from '../../data/experience';
 ---
 
-<section id="educacion" class="cv-section">
+<section id="formacion" class="cv-section">
   <div class="container">
     <div class="section-heading">
-      <p class="eyebrow">Educación</p>
       <h2>Formación</h2>
+      <p>
+        Base académica y técnica que respalda mi transición al desarrollo web.
+      </p>
     </div>
 
     <div class="education-grid">
@@ -29,15 +31,25 @@ import { education } from '../../data/experience';
   }
 
   .section-heading {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.75rem;
   }
 
   .section-heading h2 {
     margin: 0;
     color: var(--color-heading);
+    font-family: var(--font-display);
     font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 400;
     line-height: 1;
     letter-spacing: 0;
+  }
+
+  .section-heading p {
+    max-width: 680px;
+    margin: 0.9rem 0 0;
+    color: var(--color-muted);
+    font-size: 1.04rem;
+    line-height: 1.72;
   }
 
   .education-grid {
@@ -47,19 +59,16 @@ import { education } from '../../data/experience';
   }
 
   .education-card {
-    padding: 1.35rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface);
-    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--color-border);
   }
 
   .education-card p {
     margin: 0 0 0.6rem;
     color: var(--color-primary-deep);
     font-size: 0.8rem;
-    font-weight: 830;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 

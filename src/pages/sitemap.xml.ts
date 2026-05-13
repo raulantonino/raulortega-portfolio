@@ -7,7 +7,6 @@ const siteUrl = 'https://raulortega.cl';
 
 const routes = [
   '/',
-  '/sobre-mi/',
   '/proyectos/',
   ...allProjects.map((project) => `/proyectos/${project.slug}/`),
 ];
