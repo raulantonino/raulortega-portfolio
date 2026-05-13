@@ -235,6 +235,10 @@ textarea {
 }
 
 @media (max-width: 720px) {
+  section[id] {
+    scroll-margin-top: 8rem;
+  }
+
   .section {
     padding: 3.5rem 0;
   }
@@ -249,6 +253,34 @@ textarea {
 
   .button-row {
     align-items: stretch;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(100% - 1rem, var(--container));
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.85rem, 12vw, 2.4rem);
+  }
+
+  .section-description {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .button {
+    min-height: 2.45rem;
+    padding: 0.68rem 0.85rem;
+  }
+
+  .button-row {
+    gap: 0.6rem;
   }
 }
 

@@ -460,8 +460,44 @@ const jsonLd = [
   }
 
   @media (max-width: 560px) {
+    .case-hero {
+      padding: 3.5rem 0 2.4rem;
+    }
+
+    .case-hero h1 {
+      font-size: clamp(2.6rem, 14vw, 3.2rem);
+      line-height: 1;
+    }
+
+    .case-summary p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .case-media-section {
+      padding: 0.25rem 0 2rem;
+    }
+
     .case-facts {
       grid-template-columns: 1fr;
+    }
+
+    .case-content-section {
+      padding-bottom: 3.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .case-links {
+      gap: 0.75rem;
+    }
+
+    .case-section {
+      padding-bottom: 1.9rem;
+    }
+
+    .case-section + .case-section {
+      padding-top: 1.9rem;
     }
   }
 </style>

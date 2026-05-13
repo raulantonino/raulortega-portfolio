@@ -258,4 +258,34 @@ const jsonLd = {
       padding: 0 1rem 1.15rem;
     }
   }
+
+  @media (max-width: 560px) {
+    .page-hero {
+      padding: 3.5rem 0 2.4rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.6rem, 14vw, 3.2rem);
+      line-height: 1;
+    }
+
+    .page-hero p:not(.eyebrow) {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .projects-section {
+      padding: 0.25rem 0 3.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .project-body {
+      padding: 0 0.85rem 1rem;
+    }
+
+    .project-links {
+      gap: 0.75rem;
+    }
+  }
 </style>
